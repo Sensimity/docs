@@ -244,7 +244,6 @@ Delete a beacon.
 | beacon_id  | integer | ID of the beacon  |
 
 ### Response
-The response is a list of all beacons belonging to this network.
 
 #### Status code
 204 No Content

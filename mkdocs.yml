@@ -1,0 +1,9 @@
+site_name: BlaBla
+#theme: readthedocs
+pages:
+- [index.md, Home]
+- [basic-communication.md, 1. Basic communication]
+- [authentication.md, 2. Authentication]
+- [common-use-cases.md, 3. Common use cases]
+- [endpoints/index.md, 4. Endpoints, Endpoints]
+- [endpoints/beacon.md, 4. Endpoints, 'Beacon']

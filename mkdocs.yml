@@ -9,3 +9,4 @@ pages:
 - [endpoints/user.md, 4. Endpoints, 'User']
 - [endpoints/scan-results.md, 4. Endpoints, 'Scan results']
 - [endpoints/beacon-statistics.md, 4. Endpoints, 'Beacon statistics']
+- [endpoints/network-statistics.md, 4. Endpoints, 'Network statistics']

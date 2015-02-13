@@ -16,9 +16,9 @@ The body is a json format of a user.
 
 ```json
 {
-  "email": "rkuipers@enrise.com",
+  "email": "user@example.org",
   "password": "qwerty123",
-  "name": "Rick Kuipers"
+  "name": "John Doe"
 }
 ```
 
@@ -28,8 +28,8 @@ The response is the user object.
 #### Body
 ```json
 {
-  "email": "rkuipers@enrise.com",
-  "name": "Rick Kuipers",
+  "email": "user@example.org",
+  "name": "John Doe",
   "created_at": "2015-02-13 16:33:31.347069",
   "updated_at": "2015-02-13 16:33:31.347069",
   "superadmin": false,
@@ -67,7 +67,7 @@ The response is single user.
 #### Body
 ```json
 {
-  "email": "rkuipers@enrise.com",
+  "email": "user@example.org",
   "name": "John Doe",
   "created_at": "2015-02-13 16:33:31.347069",
   "updated_at": "2015-02-13 16:33:31.347069",
@@ -111,7 +111,7 @@ The response is a single user.
 #### Body
 ```json
 {
-  "email": "rkuipers@enrise.com",
+  "email": "user@example.org",
   "name": "John Deer",
   "created_at": "2015-02-13 16:33:31.347069",
   "updated_at": "2015-02-13 16:33:31.347069",

@@ -1,7 +1,7 @@
 # Collection
 
 ## POST
-This is actually an RPC-style endpoint. It is used to send raw usage data to the server, so that the statistics can be compiled.
+This is an RPC-style endpoint. It is used to send raw usage data to the server, so that the statistics can be compiled.
 
 ### Request
 

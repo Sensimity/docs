@@ -147,7 +147,7 @@ Get a specific beacon from the specified network.
 
 #### URL
 ```
-/network/:network_id/beacon[/:beacon_id]
+/network/:network_id/beacon/:beacon_id
 ```
 
 #### Parameters
@@ -187,7 +187,7 @@ Update a specific beacon from the specified network.
 
 #### URL
 ```
-/network/:network_id/beacon[/:beacon_id]
+/network/:network_id/beacon/:beacon_id
 ```
 
 #### Parameters
@@ -234,7 +234,7 @@ Delete a beacon.
 
 #### URL
 ```
-/network/:network_id/beacon[/:beacon_id]
+/network/:network_id/beacon/:beacon_id
 ```
 
 #### Parameters

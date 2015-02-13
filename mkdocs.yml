@@ -7,3 +7,4 @@ pages:
 - [endpoints/index.md, 4. Endpoints, Endpoints]
 - [endpoints/beacon.md, 4. Endpoints, 'Beacon']
 - [endpoints/user.md, 4. Endpoints, 'User']
+- [endpoints/scan-results.md, 4. Endpoints, 'Scan results']

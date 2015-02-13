@@ -6,3 +6,4 @@ pages:
 - [common-use-cases.md, 3. Common use cases]
 - [endpoints/index.md, 4. Endpoints, Endpoints]
 - [endpoints/beacon.md, 4. Endpoints, 'Beacon']
+- [endpoints/user.md, 4. Endpoints, 'User']

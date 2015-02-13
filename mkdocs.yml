@@ -1,4 +1,4 @@
-site_name: BlaBla
+site_name: Sensimity API Documentation
 pages:
 - [index.md, Home]
 - [basic-communication.md, 1. Basic communication]

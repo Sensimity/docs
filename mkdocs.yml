@@ -1,5 +1,4 @@
 site_name: BlaBla
-#theme: readthedocs
 pages:
 - [index.md, Home]
 - [basic-communication.md, 1. Basic communication]

@@ -47,6 +47,7 @@ The response is the user object.
 # Resource
 
 ## GET
+Get a specific user.
 
 ### Request
 
@@ -84,6 +85,7 @@ The response is single user.
 ```
 
 ## PATCH
+Update a specific user.
 
 ### Request
 

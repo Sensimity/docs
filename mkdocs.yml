@@ -8,6 +8,6 @@ pages:
 - [endpoints/index.md, 4. Endpoints, Endpoints]
 - [endpoints/beacon.md, 4. Endpoints, 'Beacon']
 - [endpoints/user.md, 4. Endpoints, 'User']
-- [endpoints/scan-results.md, 4. Endpoints, 'Scan results']
-- [endpoints/business-rule.md, 4. Endpoints, 'Business rules']
+- [endpoints/scan-results.md, 4. Endpoints, 'Scan result']
+- [endpoints/business-rule.md, 4. Endpoints, 'Business rule']
 - [endpoints/network.md, 4. Endpoints, 'Network']

@@ -70,7 +70,7 @@ The response is a list of all business rules for the specific beacon.
 ```
 
 ## POST
-Create a new business-rule in the collection.
+Create a new business rule in the collection.
 
 ### Request
 

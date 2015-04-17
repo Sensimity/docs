@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>Beacon - Sensimity API Documentation - Sensimity API Documentation</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link rel="stylesheet" href="../../css/sensimity.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a href="../.." class="navbar-brand text-lt">
+                <img src="../../img/sensimity.png" alt="Welcome to Sensimity">
+                <span class="hidden-folded m-l-xs">Sensimity API Documentation</span>
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../basic-communication">1. Basic communication</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../authentication">2. Authentication</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../common-use-cases">3. Common use cases</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">4. Endpoints <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            <li >
+                                <a href="..">Endpoints</a>
+                            </li>
+                        
+                            <li class="active">
+                                <a href=".">Beacon</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../user">User</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../scan-results">Scan result</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../business-rule">Business rule</a>
+                            </li>
+                        
+                            <li >
+                                <a href="../network">Network</a>
+                            </li>
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#collection">Collection</a></li>
+        
+            <li><a href="#get">GET</a></li>
+        
+            <li><a href="#post">POST</a></li>
+        
+    
+        <li class="main "><a href="#resource">Resource</a></li>
+        
+            <li><a href="#get_1">GET</a></li>
+        
+            <li><a href="#patch">PATCH</a></li>
+        
+            <li><a href="#delete">DELETE</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="collection">Collection</h1>
+<h2 id="get">GET</h2>
+<p>Retrieve collection of beacons.</p>
+<h3 id="request">Request</h3>
+<h4 id="url">URL</h4>
+<pre><code>/network/:network_id/beacon
+</code></pre>
+
+<h4 id="parameters">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>integer</td>
+<td>ID of the network</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response">Response</h3>
+<p>The response is a list of all beacons belonging to this network.</p>
+<h4 id="body">Body</h4>
+<pre><code class="json">{
+  &quot;_links&quot;: {
+    &quot;self&quot;: {
+      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/network\/1\/beacon?page=1&quot;
+    },
+    &quot;first&quot;: {
+      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/network\/1\/beacon&quot;
+    },
+    &quot;last&quot;: {
+      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/network\/1\/beacon?page=1&quot;
+    }
+  },
+  &quot;_embedded&quot;: {
+    &quot;beacon&quot;: [
+      {
+        &quot;beacon_id&quot;: 1,
+        &quot;uuid_beacon&quot;: &quot;44c0ffee-988a-49dc-0bad-a55c0de2d1e4&quot;,
+        &quot;major&quot;: 16,
+        &quot;minor&quot;: 1,
+        &quot;created_at&quot;: &quot;2014-08-04 22:10:12.313&quot;,
+        &quot;updated_at&quot;: &quot;2014-08-04 22:10:36.823678&quot;,
+        &quot;network_id&quot;: 1,
+        &quot;title&quot;: &quot;beacon_1&quot;,
+        &quot;description&quot;: &quot;This is the first beacon&quot;,
+        &quot;_links&quot;: {
+          &quot;self&quot;: {
+            &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/1&quot;
+          },
+          &quot;area&quot;: {
+            &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/area\/4&quot;
+          }
+        }
+      },
+      {
+        &quot;beacon_id&quot;: 2,
+        &quot;uuid_beacon&quot;: &quot;44c0ffee-988a-49dc-0bad-a55c0de2d1e4&quot;,
+        &quot;major&quot;: 2,
+        &quot;minor&quot;: 2,
+        &quot;created_at&quot;: &quot;2015-02-06 15:57:54.058238&quot;,
+        &quot;updated_at&quot;: &quot;2015-02-06 15:57:54.058238&quot;,
+        &quot;network_id&quot;: 1,
+        &quot;title&quot;: &quot;beacon_2&quot;,
+        &quot;description&quot;: &quot;This is the second beacon&quot;,
+        &quot;_links&quot;: {
+          &quot;self&quot;: {
+            &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/2&quot;
+          },
+          &quot;area&quot;: {
+            &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/area\/2&quot;
+          }
+        }
+      }
+    ]
+  },
+  &quot;page_count&quot;: 1,
+  &quot;page_size&quot;: 100,
+  &quot;total_items&quot;: 2
+}
+</code></pre>
+
+<h2 id="post">POST</h2>
+<p>Create a new beacon in the collection.</p>
+<h3 id="request_1">Request</h3>
+<h4 id="url_1">URL</h4>
+<pre><code>/network/:network_id/beacon
+</code></pre>
+
+<h4 id="parameters_1">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>integer</td>
+<td>ID of the network</td>
+</tr>
+</tbody>
+</table>
+<h4 id="body_1">Body</h4>
+<p>The body is a json format of a beacon.</p>
+<pre><code class="json">{
+  &quot;uuid_beacon&quot;: &quot;44c0ffee-988a-49dc-0bad-a55c0de2d1e4&quot;,
+  &quot;major&quot;: 2,
+  &quot;minor&quot;: 2,
+  &quot;network_id&quot;: 1,
+  &quot;title&quot;: &quot;beacon_2&quot;,
+  &quot;description&quot;: &quot;This is the second beacon&quot;
+}
+</code></pre>
+
+<h3 id="response_1">Response</h3>
+<p>The response is a list of all beacons belonging to this network.</p>
+<h4 id="status-code">Status code</h4>
+<p>201 Created</p>
+<h4 id="body_2">Body</h4>
+<pre><code class="json">{
+  &quot;beacon_id&quot;: 6,
+  &quot;area_id&quot;: null,
+  &quot;uuid_beacon&quot;: &quot;44c0ffee-988a-49dc-0bad-a55c0de2d1e4&quot;,
+  &quot;major&quot;: 2,
+  &quot;minor&quot;: 2,
+  &quot;created_at&quot;: &quot;2015-02-13 13:50:23.466588&quot;,
+  &quot;updated_at&quot;: &quot;2015-02-13 13:50:23.466588&quot;,
+  &quot;network_id&quot;: 1,
+  &quot;title&quot;: &quot;beacon_2&quot;,
+  &quot;description&quot;: &quot;This is the second beacon&quot;,
+  &quot;_links&quot;: {
+    &quot;self&quot;: {
+      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6&quot;
+    }
+  }
+}
+</code></pre>
+
+<h1 id="resource">Resource</h1>
+<h2 id="get_1">GET</h2>
+<p>Get a specific beacon from the specified network.</p>
+<h3 id="request_2">Request</h3>
+<h4 id="url_2">URL</h4>
+<pre><code>/network/:network_id/beacon/:beacon_id
+</code></pre>
+
+<h4 id="parameters_2">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>integer</td>
+<td>ID of the network</td>
+</tr>
+<tr>
+<td>beacon_id</td>
+<td>integer</td>
+<td>ID of the beacon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response_2">Response</h3>
+<p>The response is a single beacon resource from the network.</p>
+<h4 id="body_3">Body</h4>
+<pre><code class="json">{
+  &quot;beacon_id&quot;: 6,
+  &quot;area_id&quot;: null,
+  &quot;uuid_beacon&quot;: &quot;44c0ffee-988a-49dc-0bad-a55c0de2d1e4&quot;,
+  &quot;major&quot;: 2,
+  &quot;minor&quot;: 2,
+  &quot;created_at&quot;: &quot;2015-02-13 13:50:23.466588&quot;,
+  &quot;updated_at&quot;: &quot;2015-02-13 13:50:23.466588&quot;,
+  &quot;network_id&quot;: 1,
+  &quot;title&quot;: &quot;beacon_2&quot;,
+  &quot;description&quot;: &quot;This is the second beacon&quot;,
+  &quot;_links&quot;: {
+    &quot;self&quot;: {
+      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6&quot;
+    }
+  }
+}
+</code></pre>
+
+<h2 id="patch">PATCH</h2>
+<p>Update a specific beacon from the specified network.</p>
+<h3 id="request_3">Request</h3>
+<h4 id="url_3">URL</h4>
+<pre><code>/network/:network_id/beacon/:beacon_id
+</code></pre>
+
+<h4 id="parameters_3">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>integer</td>
+<td>ID of the network</td>
+</tr>
+<tr>
+<td>beacon_id</td>
+<td>integer</td>
+<td>ID of the beacon</td>
+</tr>
+</tbody>
+</table>
+<h4 id="body_4">Body</h4>
+<pre><code class="json">{
+  &quot;title&quot;: &quot;my_beacon&quot;
+}
+</code></pre>
+
+<h3 id="response_3">Response</h3>
+<p>The response is the updated beacon resource from the network.</p>
+<h4 id="body_5">Body</h4>
+<pre><code class="json">{
+  &quot;beacon_id&quot;: 6,
+  &quot;area_id&quot;: null,
+  &quot;uuid_beacon&quot;: &quot;44c0ffee-988a-49dc-0bad-a55c0de2d1e4&quot;,
+  &quot;major&quot;: 2,
+  &quot;minor&quot;: 2,
+  &quot;created_at&quot;: &quot;2015-02-13 13:50:23.466588&quot;,
+  &quot;updated_at&quot;: &quot;2015-02-13 13:50:23.466588&quot;,
+  &quot;network_id&quot;: 1,
+  &quot;title&quot;: &quot;my_beacon&quot;,
+  &quot;description&quot;: &quot;This is the second beacon&quot;,
+  &quot;_links&quot;: {
+    &quot;self&quot;: {
+      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6&quot;
+    }
+  }
+}
+</code></pre>
+
+<h2 id="delete">DELETE</h2>
+<p>Delete a beacon.</p>
+<h3 id="request_4">Request</h3>
+<h4 id="url_4">URL</h4>
+<pre><code>/network/:network_id/beacon/:beacon_id
+</code></pre>
+
+<h4 id="parameters_4">Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>integer</td>
+<td>ID of the network</td>
+</tr>
+<tr>
+<td>beacon_id</td>
+<td>integer</td>
+<td>ID of the beacon</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response_4">Response</h3>
+<h4 id="status-code_1">Status code</h4>
+<p>204 No Content</p>
+</div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

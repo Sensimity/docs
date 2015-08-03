@@ -15,6 +15,7 @@ The body must contain all collected data from the client's device.
 
 ```json
 {
+  "instance_ref": "S-44C0FFEE-1",
   "device": {
     "model": "Find 5",
     "operating_system": "android",
@@ -28,14 +29,16 @@ The body must contain all collected data from the client's device.
       "timestamp": 1406804464.128,
       "rssi": -60,
       "id": 1,
-      "minor": 0
+      "minor": 0,
+      "beacon_id": 16
     }, {
       "major": 16,
       "UUID": "44c0ffee-988a-49dc-0bad-a55c0de2d1e4",
       "timestamp": 1406804474.128,
       "rssi": -60,
       "id": 2,
-      "minor": 0
+      "minor": 0,
+      "beacon_id": 16
     }
   ]
 }

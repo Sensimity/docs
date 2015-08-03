@@ -4,6 +4,8 @@
 
 Create a new user.
 
+A user must at all times be linked to an account.
+
 ### Request
 
 #### URL
@@ -12,33 +14,100 @@ Create a new user.
 ```
 
 #### Body
-The body is a json format of a user.
+The body is a json format of a user, with an embedded reference to the Account the user will be linked to.
+Optionally, the Account (and underlying Network and Instance) can be created in one request.
 
 ```json
 {
+  "name": "John Doe",
   "email": "user@example.org",
   "password": "qwerty123",
-  "name": "John Doe"
+  "_embedded": {
+    "account": {
+      "name": "JohnDoe",
+      "ref": "S-JOHNDOE"
+    }
+  }
+}
+```
+
+Or, you can link a new User to an existing account like this:
+
+```json
+{
+  "name": "John Doe",
+  "email": "user@example.org",
+  "password": "qwerty123",
+  "_embedded": {
+    "account": {
+      "_links": {
+        "self": {
+          "href": "http://api.sensimity.com/account/1"
+        }
+      }
+    }
+  }
 }
 ```
 
 ### Response
-The response is the user object.
+The response is the created User object.
 
 #### Body
 ```json
 {
-  "email": "user@example.org",
+  "user_id": 1,
   "name": "John Doe",
-  "created_at": "2015-02-13 16:33:31.347069",
-  "updated_at": "2015-02-13 16:33:31.347069",
+  "email": "user@example.org",
+  "password": null,
   "superadmin": false,
-  "deleted": false,
-  "networks": [ ],
-  "user_id": 22,
+  "_embedded": {
+    "account": {
+      "account_id": 1,
+      "ref": "S-JOHNDOE",
+      "name": "JohnDoe",
+      "_embedded": {
+        "default_network": {
+          "network_id": 1018,
+          "_links": {
+            "self": {
+              "href": "http:\\/\\/api.sensimity.com\\/network\\/1"
+            }
+          }
+        },
+        "instance": [
+          {
+            "instance_id": 1,
+            "ref": "S-JOHNDOE-1",
+            "name": "JohnDoe",
+            "_embedded": {
+              "account": {
+                "account_id": 1,
+                "_links": {
+                  "self": {
+                    "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+                  }
+                }
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "http:\\/\\/api.sensimity.com\\/instance\\/1"
+              }
+            }
+          }
+        ]
+      },
+      "_links": {
+        "self": {
+          "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+        }
+      }
+    }
+  },
   "_links": {
     "self": {
-      "href": "http:\/\/api.sensimity.com\/user\/22"
+      "href": "http:\\/\\/api.sensimity.com\\/user\\/1"
     }
   }
 }
@@ -68,17 +137,58 @@ The response is single user.
 #### Body
 ```json
 {
-  "email": "user@example.org",
+  "user_id": 1,
   "name": "John Doe",
-  "created_at": "2015-02-13 16:33:31.347069",
-  "updated_at": "2015-02-13 16:33:31.347069",
+  "email": "user@example.org",
+  "password": null,
   "superadmin": false,
-  "deleted": false,
-  "networks": [ ],
-  "user_id": 22,
+  "_embedded": {
+    "account": {
+      "account_id": 1,
+      "ref": "S-JOHNDOE",
+      "name": "JohnDoe",
+      "_embedded": {
+        "default_network": {
+          "network_id": 1,
+          "_links": {
+            "self": {
+              "href": "http:\\/\\/api.sensimity.com\\/network\\/1"
+            }
+          }
+        },
+        "instance": [
+          {
+            "instance_id": 1,
+            "ref": "S-JOHNDOE-1",
+            "name": "JohnDoe",
+            "_embedded": {
+              "account": {
+                "account_id": 1,
+                "_links": {
+                  "self": {
+                    "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+                  }
+                }
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "http:\\/\\/api.sensimity.com\\/instance\\/1"
+              }
+            }
+          }
+        ]
+      },
+      "_links": {
+        "self": {
+          "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+        }
+      }
+    }
+  },
   "_links": {
     "self": {
-      "href": "http:\/\/api.sensimity.com\/user\/22"
+      "href": "http:\\/\\/api.sensimity.com\\/user\\/1"
     }
   }
 }
@@ -113,17 +223,58 @@ The response is a single user.
 #### Body
 ```json
 {
-  "email": "user@example.org",
+  "user_id": 1,
   "name": "John Deer",
-  "created_at": "2015-02-13 16:33:31.347069",
-  "updated_at": "2015-02-13 16:33:31.347069",
+  "email": "user@example.org",
+  "password": null,
   "superadmin": false,
-  "deleted": false,
-  "networks": [ ],
-  "user_id": 22,
+  "_embedded": {
+    "account": {
+      "account_id": 1,
+      "ref": "S-JOHNDOE",
+      "name": "JohnDoe",
+      "_embedded": {
+        "default_network": {
+          "network_id": 1,
+          "_links": {
+            "self": {
+              "href": "http:\\/\\/api.sensimity.com\\/network\\/1"
+            }
+          }
+        },
+        "instance": [
+          {
+            "instance_id": 1,
+            "ref": "S-JOHNDOE-1",
+            "name": "JohnDoe",
+            "_embedded": {
+              "account": {
+                "account_id": 1,
+                "_links": {
+                  "self": {
+                    "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+                  }
+                }
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "http:\\/\\/api.sensimity.com\\/instance\\/1"
+              }
+            }
+          }
+        ]
+      },
+      "_links": {
+        "self": {
+          "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+        }
+      }
+    }
+  },
   "_links": {
     "self": {
-      "href": "http:\/\/api.sensimity.com\/user\/22"
+      "href": "http:\\/\\/api.sensimity.com\\/user\\/1"
     }
   }
 }

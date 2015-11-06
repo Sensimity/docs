@@ -45,14 +45,27 @@ The body must contain all collected data from the client's device.
 ```
 
 ### Response
-The response is a summary of the received results.
+The response is an indication of success. When the request was accepted, you will receive an HTTP-status of"204 No Content".
+If the provided `instance_ref` does not exist in the Sensimity database a HTTP-status "400 Bad Request".
+
+#### Status code
+
+If the request was successful:
+
+* 204 No Content
+
+In case of client error:
+
+* 400 Bad Request
+
 
 #### Body
+In case the instance_ref was not recognized:
 
 ```json
 {
-  "message": "The scan results are successfully processed.",
-  "added": 2,
-  "skipped": 0
+  "errors": [
+    "Supplied reference does not exist"
+  ]
 }
 ```

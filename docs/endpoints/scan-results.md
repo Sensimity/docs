@@ -24,25 +24,30 @@ The body must contain all collected data from the client's device.
   },
   "beaconLogs": [
     {
-      "major": 16,
       "UUID": "44c0ffee-988a-49dc-0bad-a55c0de2d1e4",
+      "major": 16,
+      "minor": 0,
       "timestamp": 1406804464.128,
+      "timezone": "UTC+01:00",
       "rssi": -60,
-      "id": 1,
       "minor": 0,
       "beacon_id": 16
     }, {
-      "major": 16,
       "UUID": "44c0ffee-988a-49dc-0bad-a55c0de2d1e4",
-      "timestamp": 1406804474.128,
-      "rssi": -60,
-      "id": 2,
+      "major": 16,
       "minor": 0,
+      "timestamp": 1406804474.128,
+      "timezone": "UTC+02:00",
+      "rssi": -60,
       "beacon_id": 16
     }
   ]
 }
 ```
+
+| Parameter             | Description                         | Required |
+|-----------------------|-------------------------------------|:--------:|
+| beaconLogs[].timezone | The client's timezone in UTC format | no       |
 
 ### Response
 The response is an indication of success. When the request was accepted, you will receive an HTTP-status of"204 No Content".

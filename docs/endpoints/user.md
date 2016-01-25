@@ -42,7 +42,7 @@ Or, you can link a new User to an existing account like this:
     "account": {
       "_links": {
         "self": {
-          "href": "http://api.sensimity.com/account/1"
+          "href": "https://api.sensimity.com/account/1"
         }
       }
     }
@@ -71,7 +71,7 @@ The response is the created User object.
           "network_id": 1018,
           "_links": {
             "self": {
-              "href": "http:\\/\\/api.sensimity.com\\/network\\/1"
+              "href": "https:\\/\\/api.sensimity.com\\/network\\/1"
             }
           }
         },
@@ -85,14 +85,14 @@ The response is the created User object.
                 "account_id": 1,
                 "_links": {
                   "self": {
-                    "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+                    "href": "https:\\/\\/api.sensimity.com\\/account\\/1"
                   }
                 }
               }
             },
             "_links": {
               "self": {
-                "href": "http:\\/\\/api.sensimity.com\\/instance\\/1"
+                "href": "https:\\/\\/api.sensimity.com\\/instance\\/1"
               }
             }
           }
@@ -100,14 +100,14 @@ The response is the created User object.
       },
       "_links": {
         "self": {
-          "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+          "href": "https:\\/\\/api.sensimity.com\\/account\\/1"
         }
       }
     }
   },
   "_links": {
     "self": {
-      "href": "http:\\/\\/api.sensimity.com\\/user\\/1"
+      "href": "https:\\/\\/api.sensimity.com\\/user\\/1"
     }
   }
 }
@@ -152,7 +152,7 @@ The response is single user.
           "network_id": 1,
           "_links": {
             "self": {
-              "href": "http:\\/\\/api.sensimity.com\\/network\\/1"
+              "href": "https:\\/\\/api.sensimity.com\\/network\\/1"
             }
           }
         },
@@ -166,14 +166,14 @@ The response is single user.
                 "account_id": 1,
                 "_links": {
                   "self": {
-                    "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+                    "href": "https:\\/\\/api.sensimity.com\\/account\\/1"
                   }
                 }
               }
             },
             "_links": {
               "self": {
-                "href": "http:\\/\\/api.sensimity.com\\/instance\\/1"
+                "href": "https:\\/\\/api.sensimity.com\\/instance\\/1"
               }
             }
           }
@@ -181,14 +181,14 @@ The response is single user.
       },
       "_links": {
         "self": {
-          "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+          "href": "https:\\/\\/api.sensimity.com\\/account\\/1"
         }
       }
     }
   },
   "_links": {
     "self": {
-      "href": "http:\\/\\/api.sensimity.com\\/user\\/1"
+      "href": "https:\\/\\/api.sensimity.com\\/user\\/1"
     }
   }
 }
@@ -238,7 +238,7 @@ The response is a single user.
           "network_id": 1,
           "_links": {
             "self": {
-              "href": "http:\\/\\/api.sensimity.com\\/network\\/1"
+              "href": "https:\\/\\/api.sensimity.com\\/network\\/1"
             }
           }
         },
@@ -252,14 +252,14 @@ The response is a single user.
                 "account_id": 1,
                 "_links": {
                   "self": {
-                    "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+                    "href": "https:\\/\\/api.sensimity.com\\/account\\/1"
                   }
                 }
               }
             },
             "_links": {
               "self": {
-                "href": "http:\\/\\/api.sensimity.com\\/instance\\/1"
+                "href": "https:\\/\\/api.sensimity.com\\/instance\\/1"
               }
             }
           }
@@ -267,14 +267,14 @@ The response is a single user.
       },
       "_links": {
         "self": {
-          "href": "http:\\/\\/api.sensimity.com\\/account\\/1"
+          "href": "https:\\/\\/api.sensimity.com\\/account\\/1"
         }
       }
     }
   },
   "_links": {
     "self": {
-      "href": "http:\\/\\/api.sensimity.com\\/user\\/1"
+      "href": "https:\\/\\/api.sensimity.com\\/user\\/1"
     }
   }
 }

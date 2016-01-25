@@ -44,23 +44,23 @@ The body must contain all collected data from the client's device.
 }
 ```
 
-| Parameter               | Description                                              | Required |
-|-------------------------|----------------------------------------------------------|:--------:|
-| instance_ref            | The application reference as you get from your dashboard | yes      |
-| device.model            | The client's device model                                | yes      |
-| device.operating_system | The client's device model                                | yes      |
-| device.version          | The client's device OS version                           | yes      |
-| device.device_id        | The client's unique device id                            | yes      |
-| beaconLogs[].UUID       | The beacon UUID                                          | yes      |
-| beaconLogs[].major      | The beacon's major number                                | yes      |
-| beaconLogs[].minor      | The beacon's minor number                                | yes      |
-| beaconLogs[].timestamp  | Timestamp of result in seconds                           | yes      |
-| beaconLogs[].timezone   | The client's timezone in UTC format                      | no       |
-| beaconLogs[].rssi       | The result's RSSI value                                  | yes      |
-| beaconLogs[].beacon_id  | The beacon's id as defined in Sensimity                  | no       |
+| Parameter               | Description                                              | Required | Example   |
+|-------------------------|----------------------------------------------------------|:--------:|-----------|
+| instance_ref            | The application reference as you get from your dashboard | yes      |           |
+| device.model            | The client's device model                                | yes      |           |
+| device.operating_system | The client's device model                                | yes      |           |
+| device.version          | The client's device OS version                           | yes      |           |
+| device.device_id        | The client's unique device id                            | yes      |           |
+| beaconLogs[].UUID       | The beacon UUID                                          | yes      |           |
+| beaconLogs[].major      | The beacon's major number                                | yes      |           |
+| beaconLogs[].minor      | The beacon's minor number                                | yes      |           |
+| beaconLogs[].timestamp  | Timestamp of result in seconds                           | yes      |           |
+| beaconLogs[].timezone   | The client's timezone in UTC format                      | no       | UTC+02:00 |
+| beaconLogs[].rssi       | The result's RSSI value                                  | yes      | -42       |
+| beaconLogs[].beacon_id  | The beacon's id as defined in Sensimity                  | no       |           |
 
 ### Response
-The response is an indication of success. When the request was accepted, you will receive an HTTP-status of"204 No Content".
+The response is an indication of success. When the request was accepted, you will receive an HTTP-status of "204 No Content".
 If the provided `instance_ref` does not exist in the Sensimity database a HTTP-status "400 Bad Request".
 
 #### Status code

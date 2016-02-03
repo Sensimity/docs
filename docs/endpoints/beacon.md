@@ -24,13 +24,13 @@ The response is a list of all beacons belonging to this network.
 {
   "_links": {
     "self": {
-      "href": "http:\/\/api.sensimity.com\/v1\/network\/1\/beacon?page=1"
+      "href": "https:\/\/api.sensimity.com\/v1\/network\/1\/beacon?page=1"
     },
     "first": {
-      "href": "http:\/\/api.sensimity.com\/v1\/network\/1\/beacon"
+      "href": "https:\/\/api.sensimity.com\/v1\/network\/1\/beacon"
     },
     "last": {
-      "href": "http:\/\/api.sensimity.com\/v1\/network\/1\/beacon?page=1"
+      "href": "https:\/\/api.sensimity.com\/v1\/network\/1\/beacon?page=1"
     }
   },
   "_embedded": {
@@ -47,10 +47,10 @@ The response is a list of all beacons belonging to this network.
         "description": "This is the first beacon",
         "_links": {
           "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/1"
+            "href": "https:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/1"
           },
           "area": {
-            "href": "http:\/\/api.sensimity.com\/v1\/area\/4"
+            "href": "https:\/\/api.sensimity.com\/v1\/area\/4"
           }
         }
       },
@@ -66,10 +66,10 @@ The response is a list of all beacons belonging to this network.
         "description": "This is the second beacon",
         "_links": {
           "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/2"
+            "href": "https:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/2"
           },
           "area": {
-            "href": "http:\/\/api.sensimity.com\/v1\/area\/2"
+            "href": "https:\/\/api.sensimity.com\/v1\/area\/2"
           }
         }
       }
@@ -132,7 +132,7 @@ The response is a list of all beacons belonging to this network.
   "description": "This is the second beacon",
   "_links": {
     "self": {
-      "href": "http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6"
+      "href": "https:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6"
     }
   }
 }
@@ -174,7 +174,7 @@ The response is a single beacon resource from the network.
   "description": "This is the second beacon",
   "_links": {
     "self": {
-      "href": "http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6"
+      "href": "https:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6"
     }
   }
 }
@@ -221,7 +221,7 @@ The response is the updated beacon resource from the network.
   "description": "This is the second beacon",
   "_links": {
     "self": {
-      "href": "http:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6"
+      "href": "https:\/\/api.sensimity.com\/v1\/network\/1\/beacon\/6"
     }
   }
 }

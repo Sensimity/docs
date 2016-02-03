@@ -21,13 +21,13 @@ The response is a paginated list of all networks that the user has access to.
 {
     "_links": {
         "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/network?page=1"
+            "href": "https:\/\/api.sensimity.com\/v1\/network?page=1"
         },
         "first": {
-            "href": "http:\/\/api.sensimity.com\/v1\/network"
+            "href": "https:\/\/api.sensimity.com\/v1\/network"
         },
         "last": {
-            "href": "http:\/\/api.sensimity.com\/v1\/network?page=1"
+            "href": "https:\/\/api.sensimity.com\/v1\/network?page=1"
         }
     },
     "_embedded": {
@@ -38,7 +38,7 @@ The response is a paginated list of all networks that the user has access to.
             "parent_network_id": null,
             "_links": {
                 "self": {
-                    "href": "http:\/\/api.sensimity.com\/v1\/network\/3"
+                    "href": "https:\/\/api.sensimity.com\/v1\/network\/3"
                 }
             }
         }, {
@@ -48,7 +48,7 @@ The response is a paginated list of all networks that the user has access to.
             "parent_network_id": null,
             "_links": {
                 "self": {
-                    "href": "http:\/\/api.sensimity.com\/v1\/network\/4"
+                    "href": "https:\/\/api.sensimity.com\/v1\/network\/4"
                 }
             }
         }]
@@ -89,7 +89,7 @@ The response is a single network resource representation
     "users": [],
     "_links": {
         "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/network\/5"
+            "href": "https:\/\/api.sensimity.com\/v1\/network\/5"
         }
     }
 }
@@ -130,7 +130,7 @@ The response is the updated network resource.
     "users": [],
     "_links": {
         "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/network\/5"
+            "href": "https:\/\/api.sensimity.com\/v1\/network\/5"
         }
     }
 }

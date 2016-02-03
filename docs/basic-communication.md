@@ -1,7 +1,7 @@
 # Talking to the Sensimity API
 
 ## API server
-The Sensimity API can be reached at `http://api.sensimity.com/`.
+The Sensimity API can be reached at `https://api.sensimity.com/`.
 
 ## Accept and Content-Type headers
 For all requests to the Sensimity API please use the following Accept header:
@@ -20,7 +20,7 @@ Most endpoints require the client to be authenticated with the API. You can read
 ## Making a request to the API
 For example:
 ```sh
-curl -X GET -H "Authorization: Bearer 932840e6079d85f5a4a9954916f04e37c8223cac" -H "Accept: application/vnd.sensimity.v1+json" -H "Content-Type: application/vnd.sensimity.v1+json" http://api.sensimity.com/v1/network/1/beacon
+curl -X GET -H "Authorization: Bearer 932840e6079d85f5a4a9954916f04e37c8223cac" -H "Accept: application/vnd.sensimity.v1+json" -H "Content-Type: application/vnd.sensimity.v1+json" https://api.sensimity.com/v1/network/1/beacon
 ```
 
 ## Response status codes
@@ -40,7 +40,7 @@ Based on HTTP the SensimityAPI uses HTTP-status codes. Here's a list of the stat
 | 422  | Unprocessable Entity   |             |
 
 ## Error response
-When a response was not successful, in many cases the problem will be reported in the response body. 
+When a response was not successful, in many cases the problem will be reported in the response body.
 
 
 For example, when a required property is missing.

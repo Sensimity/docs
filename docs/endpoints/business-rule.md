@@ -31,13 +31,13 @@ The response is a list of all business rules for the specific beacon.
 {
     "_links": {
         "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/business-rule?beacon=6\u0026page=1"
+            "href": "https:\/\/api.sensimity.com\/v1\/business-rule?beacon=6\u0026page=1"
         },
         "first": {
-            "href": "http:\/\/api.sensimity.com\/v1\/business-rule?beacon=6"
+            "href": "https:\/\/api.sensimity.com\/v1\/business-rule?beacon=6"
         },
         "last": {
-            "href": "http:\/\/api.sensimity.com\/v1\/business-rule?beacon=6\u0026page=1"
+            "href": "https:\/\/api.sensimity.com\/v1\/business-rule?beacon=6\u0026page=1"
         }
     },
     "_embedded": {
@@ -48,7 +48,7 @@ The response is a list of all business rules for the specific beacon.
             "interaction_id": 1,
             "_links": {
                 "self": {
-                    "href": "http:\/\/api.sensimity.com\/v1\/business-rule\/2"
+                    "href": "https:\/\/api.sensimity.com\/v1\/business-rule\/2"
                 }
             }
         }, {
@@ -58,7 +58,7 @@ The response is a list of all business rules for the specific beacon.
             "interaction_id": 1,
             "_links": {
                 "self": {
-                    "href": "http:\/\/api.sensimity.com\/v1\/business-rule\/3"
+                    "href": "https:\/\/api.sensimity.com\/v1\/business-rule\/3"
                 }
             }
         }]
@@ -114,7 +114,7 @@ The response is the created business rule resource representation.
     "content": "http:\/\/www.sensimity.com",
     "_links": {
         "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/business-rule\/1"
+            "href": "https:\/\/api.sensimity.com\/v1\/business-rule\/1"
         }
     }
 }
@@ -152,7 +152,7 @@ The response contains the specified business rule resource
     "content": "http:\/\/www.sensimity.com",
     "_links": {
         "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/business-rule\/1"
+            "href": "https:\/\/api.sensimity.com\/v1\/business-rule\/1"
         }
     }
 }
@@ -199,7 +199,7 @@ The response is the updated business rule resource.
     "content": "http:\/\/www.enrise.com",
     "_links": {
         "self": {
-            "href": "http:\/\/api.sensimity.com\/v1\/business-rule\/1"
+            "href": "https:\/\/api.sensimity.com\/v1\/business-rule\/1"
         }
     }
 }

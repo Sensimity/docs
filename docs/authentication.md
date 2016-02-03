@@ -23,7 +23,7 @@ curl -X POST \
     -H "Accept: application/vnd.sensimity.v1+json" \
     -H "Content-Type: application/vnd.sensimity.v1+json" \
     -d '{"username":"user@example.org","password":"your_password","grant_type":"password"}' \
-    http://api.sensimity.com/oauth
+    https://api.sensimity.com/oauth
 ```
 
 The response will contain a access token that you need for subsequent requests:
@@ -52,7 +52,7 @@ For example, a request to list all beacons in a network will look like this:
 curl -X GET \
     -H "Authorization: Bearer b5f4b74cd0204bd5cc2b315a6e15b19a3211de2a" \
     -H "Accept: application/vnd.sensimity.v1+json" \
-    http://api.sensimity.com/v1/network/1/beacon/1
+    https://api.sensimity.com/v1/network/1/beacon/1
 ```
 
 ## Refresh token
@@ -66,7 +66,7 @@ curl -X POST \
     -H "Accept: application/vnd.sensimity.v1+json" \
     -H "Content-Type: application/vnd.sensimity.v1+json" \
     -d '{"username":"user@example.org","refresh_token":"d454a2e53636153f21607e5817378bd6c059dd5c","grant_type":"refresh_token"}' \
-    http://api.sensimity.com/oauth
+    https://api.sensimity.com/oauth
 ```
 
 The response will contain a new access token that you need for subsequent requests:

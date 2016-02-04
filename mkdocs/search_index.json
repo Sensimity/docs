@@ -1,0 +1,794 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to the Sensimity API documentation\n\n\nLeverage the power of Sensimity in your app!\n\n\nThis documentation describes the resources that make up the Sensimity API. If you have any problems please \ncontact us\n.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-the-sensimity-api-documentation", 
+            "text": "Leverage the power of Sensimity in your app!  This documentation describes the resources that make up the Sensimity API. If you have any problems please  contact us .", 
+            "title": "Welcome to the Sensimity API documentation"
+        }, 
+        {
+            "location": "/basic-communication/", 
+            "text": "Talking to the Sensimity API\n\n\nAPI server\n\n\nThe Sensimity API can be reached at \nhttps://api.sensimity.com/\n.\n\n\nAccept and Content-Type headers\n\n\nFor all requests to the Sensimity API please use the following Accept header:\n\n\nAccept: application/vnd.sensimity.v1+json\n\n\n\n\nAnd the following Content-Type header:\n\n\nContent-Type: application/vnd.sensimity.v1+json\n\n\n\n\nAuthenticating\n\n\nMost endpoints require the client to be authenticated with the API. You can read more on this in \nthe chapter on authentication\n.\n\n\nMaking a request to the API\n\n\nFor example:\n\n\ncurl -X GET -H \nAuthorization: Bearer 932840e6079d85f5a4a9954916f04e37c8223cac\n -H \nAccept: application/vnd.sensimity.v1+json\n -H \nContent-Type: application/vnd.sensimity.v1+json\n https://api.sensimity.com/v1/network/1/beacon\n\n\n\n\nResponse status codes\n\n\nBased on HTTP the SensimityAPI uses HTTP-status codes. Here's a list of the statuses and their meaning:\n\n\n\n\n\n\n\n\nCode\n\n\nStatus\n\n\nExplanation\n\n\n\n\n\n\n\n\n\n\n200\n\n\nOK\n\n\n\n\n\n\n\n\n201\n\n\nCreated\n\n\n\n\n\n\n\n\n204\n\n\nNo Content\n\n\n\n\n\n\n\n\n400\n\n\nBad Request\n\n\n\n\n\n\n\n\n401\n\n\nUnauthorized\n\n\n\n\n\n\n\n\n403\n\n\nForbidden\n\n\n\n\n\n\n\n\n404\n\n\nNot Found\n\n\n\n\n\n\n\n\n406\n\n\nNot Acceptable\n\n\n\n\n\n\n\n\n415\n\n\nUnsupported Media Type\n\n\n\n\n\n\n\n\n422\n\n\nUnprocessable Entity\n\n\n\n\n\n\n\n\n\n\nError response\n\n\nWhen a response was not successful, in many cases the problem will be reported in the response body.\n\n\nFor example, when a required property is missing.\n\n\n{\n  \nvalidation_messages\n: {\n    \ntitle\n: {\n      \nisEmpty\n: \nValue is required and can't be empty\n\n    }\n  },\n  \ntype\n: \nhttp://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html\n,\n  \ntitle\n: \nUnprocessable Entity\n,\n  \nstatus\n: 422,\n  \ndetail\n: \nFailed Validation\n\n}", 
+            "title": "1. Basic communication"
+        }, 
+        {
+            "location": "/basic-communication/#talking-to-the-sensimity-api", 
+            "text": "", 
+            "title": "Talking to the Sensimity API"
+        }, 
+        {
+            "location": "/basic-communication/#api-server", 
+            "text": "The Sensimity API can be reached at  https://api.sensimity.com/ .", 
+            "title": "API server"
+        }, 
+        {
+            "location": "/basic-communication/#accept-and-content-type-headers", 
+            "text": "For all requests to the Sensimity API please use the following Accept header:  Accept: application/vnd.sensimity.v1+json  And the following Content-Type header:  Content-Type: application/vnd.sensimity.v1+json", 
+            "title": "Accept and Content-Type headers"
+        }, 
+        {
+            "location": "/basic-communication/#authenticating", 
+            "text": "Most endpoints require the client to be authenticated with the API. You can read more on this in  the chapter on authentication .", 
+            "title": "Authenticating"
+        }, 
+        {
+            "location": "/basic-communication/#making-a-request-to-the-api", 
+            "text": "For example:  curl -X GET -H  Authorization: Bearer 932840e6079d85f5a4a9954916f04e37c8223cac  -H  Accept: application/vnd.sensimity.v1+json  -H  Content-Type: application/vnd.sensimity.v1+json  https://api.sensimity.com/v1/network/1/beacon", 
+            "title": "Making a request to the API"
+        }, 
+        {
+            "location": "/basic-communication/#response-status-codes", 
+            "text": "Based on HTTP the SensimityAPI uses HTTP-status codes. Here's a list of the statuses and their meaning:     Code  Status  Explanation      200  OK     201  Created     204  No Content     400  Bad Request     401  Unauthorized     403  Forbidden     404  Not Found     406  Not Acceptable     415  Unsupported Media Type     422  Unprocessable Entity", 
+            "title": "Response status codes"
+        }, 
+        {
+            "location": "/basic-communication/#error-response", 
+            "text": "When a response was not successful, in many cases the problem will be reported in the response body.  For example, when a required property is missing.  {\n   validation_messages : {\n     title : {\n       isEmpty :  Value is required and can't be empty \n    }\n  },\n   type :  http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html ,\n   title :  Unprocessable Entity ,\n   status : 422,\n   detail :  Failed Validation \n}", 
+            "title": "Error response"
+        }, 
+        {
+            "location": "/authentication/", 
+            "text": "Authentication\n\n\nProtocol\n\n\nSensimity uses the \nOAuth2\n protocol to handle authentication.\nThere are many libraries available in multiple language which you can use.\n\n\nCredentials\n\n\nTo use the Sensimity API you need the following credentials which you have received when creating an account:\n\n Client ID\n\n Client Secret\n\n Username\n\n Password\n\n\nIf you do not have these credentials please \ncontact us\n.\n\n\nObtaining a token\n\n\nTo obtain a token you must make a request to the Sensimity API using the credentials described in the \nprevious chapter\n.\nHere's an example of the request:\n\n\ncurl -X POST \\\n    -H \nAuthorization: Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=\n \\\n    -H \nAccept: application/vnd.sensimity.v1+json\n \\\n    -H \nContent-Type: application/vnd.sensimity.v1+json\n \\\n    -d '{\nusername\n:\nuser@example.org\n,\npassword\n:\nyour_password\n,\ngrant_type\n:\npassword\n}' \\\n    https://api.sensimity.com/oauth\n\n\n\n\nThe response will contain a access token that you need for subsequent requests:\n\n\n{\n    \naccess_token\n: \nb5f4b74cd0204bd5cc2b315a6e15b19a3211de2a\n,\n    \nexpires_in\n: 3600,\n    \ntoken_type\n: \nBearer\n,\n    \nscope\n: null,\n    \nrefresh_token\n: \nd454a2e53636153f21607e5817378bd6c059dd5c\n\n}\n\n\n\n\nMore details about this endpoint can be found in the \nOAuth endpoint documentation\n.\n\n\nCalling protected API resources\n\n\nTo make requests to endpoints that require authentication you must provide the access token in the \nAuthorization\n header.\nThe header looks as follows:\n\n\nAuthorization: Bearer b5f4b74cd0204bd5cc2b315a6e15b19a3211de2a\n\n\n\n\nFor example, a request to list all beacons in a network will look like this:\n\n\ncurl -X GET \\\n    -H \nAuthorization: Bearer b5f4b74cd0204bd5cc2b315a6e15b19a3211de2a\n \\\n    -H \nAccept: application/vnd.sensimity.v1+json\n \\\n    https://api.sensimity.com/v1/network/1/beacon/1\n\n\n\n\nRefresh token\n\n\nAn obtained access token will expire after some time and you will have to obtain a new one.\nTo do this you need the \nrefresh_token\n (see \nObtaining a token\n).\nHere's an example of the request:\n\n\ncurl -X POST \\\n    -H \nAuthorization: Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=\n \\\n    -H \nAccept: application/vnd.sensimity.v1+json\n \\\n    -H \nContent-Type: application/vnd.sensimity.v1+json\n \\\n    -d '{\nusername\n:\nuser@example.org\n,\nrefresh_token\n:\nd454a2e53636153f21607e5817378bd6c059dd5c\n,\ngrant_type\n:\nrefresh_token\n}' \\\n    https://api.sensimity.com/oauth\n\n\n\n\nThe response will contain a new access token that you need for subsequent requests:\n\n\n{\n    \naccess_token\n: \n0d9cc8ee2b04ceeabd591e1d8e208a14b956e9c4\n,\n    \nexpires_in\n: 3600,\n    \ntoken_type\n: \nBearer\n,\n    \nscope\n: null\n}", 
+            "title": "2. Authentication"
+        }, 
+        {
+            "location": "/authentication/#authentication", 
+            "text": "", 
+            "title": "Authentication"
+        }, 
+        {
+            "location": "/authentication/#protocol", 
+            "text": "Sensimity uses the  OAuth2  protocol to handle authentication.\nThere are many libraries available in multiple language which you can use.", 
+            "title": "Protocol"
+        }, 
+        {
+            "location": "/authentication/#credentials", 
+            "text": "To use the Sensimity API you need the following credentials which you have received when creating an account:  Client ID  Client Secret  Username  Password  If you do not have these credentials please  contact us .", 
+            "title": "Credentials"
+        }, 
+        {
+            "location": "/authentication/#obtaining-a-token", 
+            "text": "To obtain a token you must make a request to the Sensimity API using the credentials described in the  previous chapter .\nHere's an example of the request:  curl -X POST \\\n    -H  Authorization: Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=  \\\n    -H  Accept: application/vnd.sensimity.v1+json  \\\n    -H  Content-Type: application/vnd.sensimity.v1+json  \\\n    -d '{ username : user@example.org , password : your_password , grant_type : password }' \\\n    https://api.sensimity.com/oauth  The response will contain a access token that you need for subsequent requests:  {\n     access_token :  b5f4b74cd0204bd5cc2b315a6e15b19a3211de2a ,\n     expires_in : 3600,\n     token_type :  Bearer ,\n     scope : null,\n     refresh_token :  d454a2e53636153f21607e5817378bd6c059dd5c \n}  More details about this endpoint can be found in the  OAuth endpoint documentation .", 
+            "title": "Obtaining a token"
+        }, 
+        {
+            "location": "/authentication/#calling-protected-api-resources", 
+            "text": "To make requests to endpoints that require authentication you must provide the access token in the  Authorization  header.\nThe header looks as follows:  Authorization: Bearer b5f4b74cd0204bd5cc2b315a6e15b19a3211de2a  For example, a request to list all beacons in a network will look like this:  curl -X GET \\\n    -H  Authorization: Bearer b5f4b74cd0204bd5cc2b315a6e15b19a3211de2a  \\\n    -H  Accept: application/vnd.sensimity.v1+json  \\\n    https://api.sensimity.com/v1/network/1/beacon/1", 
+            "title": "Calling protected API resources"
+        }, 
+        {
+            "location": "/authentication/#refresh-token", 
+            "text": "An obtained access token will expire after some time and you will have to obtain a new one.\nTo do this you need the  refresh_token  (see  Obtaining a token ).\nHere's an example of the request:  curl -X POST \\\n    -H  Authorization: Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=  \\\n    -H  Accept: application/vnd.sensimity.v1+json  \\\n    -H  Content-Type: application/vnd.sensimity.v1+json  \\\n    -d '{ username : user@example.org , refresh_token : d454a2e53636153f21607e5817378bd6c059dd5c , grant_type : refresh_token }' \\\n    https://api.sensimity.com/oauth  The response will contain a new access token that you need for subsequent requests:  {\n     access_token :  0d9cc8ee2b04ceeabd591e1d8e208a14b956e9c4 ,\n     expires_in : 3600,\n     token_type :  Bearer ,\n     scope : null\n}", 
+            "title": "Refresh token"
+        }, 
+        {
+            "location": "/common-use-cases/", 
+            "text": "Under construction", 
+            "title": "3. Common use cases"
+        }, 
+        {
+            "location": "/common-use-cases/#under-construction", 
+            "text": "", 
+            "title": "Under construction"
+        }, 
+        {
+            "location": "/endpoints/", 
+            "text": "Endpoints\n\n\n\n\nBeacon\n\n\nUser\n\n\nScan results", 
+            "title": "Endpoints"
+        }, 
+        {
+            "location": "/endpoints/#endpoints", 
+            "text": "Beacon  User  Scan results", 
+            "title": "Endpoints"
+        }, 
+        {
+            "location": "/endpoints/beacon/", 
+            "text": "Collection\n\n\nGET\n\n\nRetrieve collection of beacons.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/beacon\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\n\n\nResponse\n\n\nThe response is a list of all beacons belonging to this network.\n\n\nBody\n\n\n{\n  \n_links\n: {\n    \nself\n: {\n      \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon?page=1\n\n    },\n    \nfirst\n: {\n      \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\n\n    },\n    \nlast\n: {\n      \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon?page=1\n\n    }\n  },\n  \n_embedded\n: {\n    \nbeacon\n: [\n      {\n        \nbeacon_id\n: 1,\n        \nuuid_beacon\n: \n44c0ffee-988a-49dc-0bad-a55c0de2d1e4\n,\n        \nmajor\n: 16,\n        \nminor\n: 1,\n        \ncreated_at\n: \n2014-08-04 22:10:12.313\n,\n        \nupdated_at\n: \n2014-08-04 22:10:36.823678\n,\n        \nnetwork_id\n: 1,\n        \ntitle\n: \nbeacon_1\n,\n        \ndescription\n: \nThis is the first beacon\n,\n        \n_links\n: {\n          \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/1\n\n          },\n          \narea\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/area\\/4\n\n          }\n        }\n      },\n      {\n        \nbeacon_id\n: 2,\n        \nuuid_beacon\n: \n44c0ffee-988a-49dc-0bad-a55c0de2d1e4\n,\n        \nmajor\n: 2,\n        \nminor\n: 2,\n        \ncreated_at\n: \n2015-02-06 15:57:54.058238\n,\n        \nupdated_at\n: \n2015-02-06 15:57:54.058238\n,\n        \nnetwork_id\n: 1,\n        \ntitle\n: \nbeacon_2\n,\n        \ndescription\n: \nThis is the second beacon\n,\n        \n_links\n: {\n          \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/2\n\n          },\n          \narea\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/area\\/2\n\n          }\n        }\n      }\n    ]\n  },\n  \npage_count\n: 1,\n  \npage_size\n: 100,\n  \ntotal_items\n: 2\n}\n\n\n\n\nPOST\n\n\nCreate a new beacon in the collection.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/beacon\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\n\n\nBody\n\n\nThe body is a json format of a beacon.\n\n\n{\n  \nuuid_beacon\n: \n44c0ffee-988a-49dc-0bad-a55c0de2d1e4\n,\n  \nmajor\n: 2,\n  \nminor\n: 2,\n  \nnetwork_id\n: 1,\n  \ntitle\n: \nbeacon_2\n,\n  \ndescription\n: \nThis is the second beacon\n\n}\n\n\n\n\nResponse\n\n\nThe response is a list of all beacons belonging to this network.\n\n\nStatus code\n\n\n201 Created\n\n\nBody\n\n\n{\n  \nbeacon_id\n: 6,\n  \narea_id\n: null,\n  \nuuid_beacon\n: \n44c0ffee-988a-49dc-0bad-a55c0de2d1e4\n,\n  \nmajor\n: 2,\n  \nminor\n: 2,\n  \ncreated_at\n: \n2015-02-13 13:50:23.466588\n,\n  \nupdated_at\n: \n2015-02-13 13:50:23.466588\n,\n  \nnetwork_id\n: 1,\n  \ntitle\n: \nbeacon_2\n,\n  \ndescription\n: \nThis is the second beacon\n,\n  \n_links\n: {\n    \nself\n: {\n      \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/6\n\n    }\n  }\n}\n\n\n\n\nResource\n\n\nGET\n\n\nGet a specific beacon from the specified network.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/beacon/:beacon_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\nbeacon_id\n\n\ninteger\n\n\nID of the beacon\n\n\n\n\n\n\n\n\nResponse\n\n\nThe response is a single beacon resource from the network.\n\n\nBody\n\n\n{\n  \nbeacon_id\n: 6,\n  \narea_id\n: null,\n  \nuuid_beacon\n: \n44c0ffee-988a-49dc-0bad-a55c0de2d1e4\n,\n  \nmajor\n: 2,\n  \nminor\n: 2,\n  \ncreated_at\n: \n2015-02-13 13:50:23.466588\n,\n  \nupdated_at\n: \n2015-02-13 13:50:23.466588\n,\n  \nnetwork_id\n: 1,\n  \ntitle\n: \nbeacon_2\n,\n  \ndescription\n: \nThis is the second beacon\n,\n  \n_links\n: {\n    \nself\n: {\n      \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/6\n\n    }\n  }\n}\n\n\n\n\nPATCH\n\n\nUpdate a specific beacon from the specified network.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/beacon/:beacon_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\nbeacon_id\n\n\ninteger\n\n\nID of the beacon\n\n\n\n\n\n\n\n\nBody\n\n\n{\n  \ntitle\n: \nmy_beacon\n\n}\n\n\n\n\nResponse\n\n\nThe response is the updated beacon resource from the network.\n\n\nBody\n\n\n{\n  \nbeacon_id\n: 6,\n  \narea_id\n: null,\n  \nuuid_beacon\n: \n44c0ffee-988a-49dc-0bad-a55c0de2d1e4\n,\n  \nmajor\n: 2,\n  \nminor\n: 2,\n  \ncreated_at\n: \n2015-02-13 13:50:23.466588\n,\n  \nupdated_at\n: \n2015-02-13 13:50:23.466588\n,\n  \nnetwork_id\n: 1,\n  \ntitle\n: \nmy_beacon\n,\n  \ndescription\n: \nThis is the second beacon\n,\n  \n_links\n: {\n    \nself\n: {\n      \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/6\n\n    }\n  }\n}\n\n\n\n\nDELETE\n\n\nDelete a beacon.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/beacon/:beacon_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\nbeacon_id\n\n\ninteger\n\n\nID of the beacon\n\n\n\n\n\n\n\n\nResponse\n\n\nStatus code\n\n\n204 No Content", 
+            "title": "Beacon"
+        }, 
+        {
+            "location": "/endpoints/beacon/#collection", 
+            "text": "", 
+            "title": "Collection"
+        }, 
+        {
+            "location": "/endpoints/beacon/#get", 
+            "text": "Retrieve collection of beacons.", 
+            "title": "GET"
+        }, 
+        {
+            "location": "/endpoints/beacon/#request", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/beacon/#url", 
+            "text": "/network/:network_id/beacon", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/beacon/#parameters", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/beacon/#response", 
+            "text": "The response is a list of all beacons belonging to this network.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/beacon/#body", 
+            "text": "{\n   _links : {\n     self : {\n       href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon?page=1 \n    },\n     first : {\n       href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon \n    },\n     last : {\n       href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon?page=1 \n    }\n  },\n   _embedded : {\n     beacon : [\n      {\n         beacon_id : 1,\n         uuid_beacon :  44c0ffee-988a-49dc-0bad-a55c0de2d1e4 ,\n         major : 16,\n         minor : 1,\n         created_at :  2014-08-04 22:10:12.313 ,\n         updated_at :  2014-08-04 22:10:36.823678 ,\n         network_id : 1,\n         title :  beacon_1 ,\n         description :  This is the first beacon ,\n         _links : {\n           self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/1 \n          },\n           area : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/area\\/4 \n          }\n        }\n      },\n      {\n         beacon_id : 2,\n         uuid_beacon :  44c0ffee-988a-49dc-0bad-a55c0de2d1e4 ,\n         major : 2,\n         minor : 2,\n         created_at :  2015-02-06 15:57:54.058238 ,\n         updated_at :  2015-02-06 15:57:54.058238 ,\n         network_id : 1,\n         title :  beacon_2 ,\n         description :  This is the second beacon ,\n         _links : {\n           self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/2 \n          },\n           area : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/area\\/2 \n          }\n        }\n      }\n    ]\n  },\n   page_count : 1,\n   page_size : 100,\n   total_items : 2\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/beacon/#post", 
+            "text": "Create a new beacon in the collection.", 
+            "title": "POST"
+        }, 
+        {
+            "location": "/endpoints/beacon/#request_1", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/beacon/#url_1", 
+            "text": "/network/:network_id/beacon", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/beacon/#parameters_1", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/beacon/#body_1", 
+            "text": "The body is a json format of a beacon.  {\n   uuid_beacon :  44c0ffee-988a-49dc-0bad-a55c0de2d1e4 ,\n   major : 2,\n   minor : 2,\n   network_id : 1,\n   title :  beacon_2 ,\n   description :  This is the second beacon \n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/beacon/#response_1", 
+            "text": "The response is a list of all beacons belonging to this network.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/beacon/#status-code", 
+            "text": "201 Created", 
+            "title": "Status code"
+        }, 
+        {
+            "location": "/endpoints/beacon/#body_2", 
+            "text": "{\n   beacon_id : 6,\n   area_id : null,\n   uuid_beacon :  44c0ffee-988a-49dc-0bad-a55c0de2d1e4 ,\n   major : 2,\n   minor : 2,\n   created_at :  2015-02-13 13:50:23.466588 ,\n   updated_at :  2015-02-13 13:50:23.466588 ,\n   network_id : 1,\n   title :  beacon_2 ,\n   description :  This is the second beacon ,\n   _links : {\n     self : {\n       href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/6 \n    }\n  }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/beacon/#resource", 
+            "text": "", 
+            "title": "Resource"
+        }, 
+        {
+            "location": "/endpoints/beacon/#get_1", 
+            "text": "Get a specific beacon from the specified network.", 
+            "title": "GET"
+        }, 
+        {
+            "location": "/endpoints/beacon/#request_2", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/beacon/#url_2", 
+            "text": "/network/:network_id/beacon/:beacon_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/beacon/#parameters_2", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network    beacon_id  integer  ID of the beacon", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/beacon/#response_2", 
+            "text": "The response is a single beacon resource from the network.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/beacon/#body_3", 
+            "text": "{\n   beacon_id : 6,\n   area_id : null,\n   uuid_beacon :  44c0ffee-988a-49dc-0bad-a55c0de2d1e4 ,\n   major : 2,\n   minor : 2,\n   created_at :  2015-02-13 13:50:23.466588 ,\n   updated_at :  2015-02-13 13:50:23.466588 ,\n   network_id : 1,\n   title :  beacon_2 ,\n   description :  This is the second beacon ,\n   _links : {\n     self : {\n       href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/6 \n    }\n  }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/beacon/#patch", 
+            "text": "Update a specific beacon from the specified network.", 
+            "title": "PATCH"
+        }, 
+        {
+            "location": "/endpoints/beacon/#request_3", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/beacon/#url_3", 
+            "text": "/network/:network_id/beacon/:beacon_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/beacon/#parameters_3", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network    beacon_id  integer  ID of the beacon", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/beacon/#body_4", 
+            "text": "{\n   title :  my_beacon \n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/beacon/#response_3", 
+            "text": "The response is the updated beacon resource from the network.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/beacon/#body_5", 
+            "text": "{\n   beacon_id : 6,\n   area_id : null,\n   uuid_beacon :  44c0ffee-988a-49dc-0bad-a55c0de2d1e4 ,\n   major : 2,\n   minor : 2,\n   created_at :  2015-02-13 13:50:23.466588 ,\n   updated_at :  2015-02-13 13:50:23.466588 ,\n   network_id : 1,\n   title :  my_beacon ,\n   description :  This is the second beacon ,\n   _links : {\n     self : {\n       href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/1\\/beacon\\/6 \n    }\n  }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/beacon/#delete", 
+            "text": "Delete a beacon.", 
+            "title": "DELETE"
+        }, 
+        {
+            "location": "/endpoints/beacon/#request_4", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/beacon/#url_4", 
+            "text": "/network/:network_id/beacon/:beacon_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/beacon/#parameters_4", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network    beacon_id  integer  ID of the beacon", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/beacon/#response_4", 
+            "text": "", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/beacon/#status-code_1", 
+            "text": "204 No Content", 
+            "title": "Status code"
+        }, 
+        {
+            "location": "/endpoints/user/", 
+            "text": "Collection\n\n\nPOST\n\n\nCreate a new user.\n\n\nA user must at all times be linked to an account.\n\n\nRequest\n\n\nURL\n\n\n/user\n\n\n\n\nBody\n\n\nThe body is a json format of a user, with an embedded reference to the Account the user will be linked to.\nOptionally, the Account (and underlying Network and Instance) can be created in one request.\n\n\n{\n  \nname\n: \nJohn Doe\n,\n  \nemail\n: \nuser@example.org\n,\n  \npassword\n: \nqwerty123\n,\n  \n_embedded\n: {\n    \naccount\n: {\n      \nname\n: \nJohnDoe\n,\n      \nref\n: \nS-JOHNDOE\n\n    }\n  }\n}\n\n\n\n\nOr, you can link a new User to an existing account like this:\n\n\n{\n  \nname\n: \nJohn Doe\n,\n  \nemail\n: \nuser@example.org\n,\n  \npassword\n: \nqwerty123\n,\n  \n_embedded\n: {\n    \naccount\n: {\n      \n_links\n: {\n        \nself\n: {\n          \nhref\n: \nhttps://api.sensimity.com/account/1\n\n        }\n      }\n    }\n  }\n}\n\n\n\n\nResponse\n\n\nThe response is the created User object.\n\n\nBody\n\n\n{\n  \nuser_id\n: 1,\n  \nname\n: \nJohn Doe\n,\n  \nemail\n: \nuser@example.org\n,\n  \npassword\n: null,\n  \nsuperadmin\n: false,\n  \n_embedded\n: {\n    \naccount\n: {\n      \naccount_id\n: 1,\n      \nref\n: \nS-JOHNDOE\n,\n      \nname\n: \nJohnDoe\n,\n      \n_embedded\n: {\n        \ndefault_network\n: {\n          \nnetwork_id\n: 1018,\n          \n_links\n: {\n            \nself\n: {\n              \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/network\\\\/1\n\n            }\n          }\n        },\n        \ninstance\n: [\n          {\n            \ninstance_id\n: 1,\n            \nref\n: \nS-JOHNDOE-1\n,\n            \nname\n: \nJohnDoe\n,\n            \n_embedded\n: {\n              \naccount\n: {\n                \naccount_id\n: 1,\n                \n_links\n: {\n                  \nself\n: {\n                    \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1\n\n                  }\n                }\n              }\n            },\n            \n_links\n: {\n              \nself\n: {\n                \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/instance\\\\/1\n\n              }\n            }\n          }\n        ]\n      },\n      \n_links\n: {\n        \nself\n: {\n          \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1\n\n        }\n      }\n    }\n  },\n  \n_links\n: {\n    \nself\n: {\n      \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/user\\\\/1\n\n    }\n  }\n}\n\n\n\n\nResource\n\n\nGET\n\n\nGet a specific user.\n\n\nRequest\n\n\nURL\n\n\n/user/:user_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nuser_id\n\n\ninteger\n\n\nID of the User\n\n\n\n\n\n\n\n\nResponse\n\n\nThe response is single user.\n\n\nBody\n\n\n{\n  \nuser_id\n: 1,\n  \nname\n: \nJohn Doe\n,\n  \nemail\n: \nuser@example.org\n,\n  \npassword\n: null,\n  \nsuperadmin\n: false,\n  \n_embedded\n: {\n    \naccount\n: {\n      \naccount_id\n: 1,\n      \nref\n: \nS-JOHNDOE\n,\n      \nname\n: \nJohnDoe\n,\n      \n_embedded\n: {\n        \ndefault_network\n: {\n          \nnetwork_id\n: 1,\n          \n_links\n: {\n            \nself\n: {\n              \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/network\\\\/1\n\n            }\n          }\n        },\n        \ninstance\n: [\n          {\n            \ninstance_id\n: 1,\n            \nref\n: \nS-JOHNDOE-1\n,\n            \nname\n: \nJohnDoe\n,\n            \n_embedded\n: {\n              \naccount\n: {\n                \naccount_id\n: 1,\n                \n_links\n: {\n                  \nself\n: {\n                    \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1\n\n                  }\n                }\n              }\n            },\n            \n_links\n: {\n              \nself\n: {\n                \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/instance\\\\/1\n\n              }\n            }\n          }\n        ]\n      },\n      \n_links\n: {\n        \nself\n: {\n          \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1\n\n        }\n      }\n    }\n  },\n  \n_links\n: {\n    \nself\n: {\n      \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/user\\\\/1\n\n    }\n  }\n}\n\n\n\n\nPATCH\n\n\nUpdate a specific user.\n\n\nRequest\n\n\nURL\n\n\n/user/:user_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nuser_id\n\n\ninteger\n\n\nID of the User\n\n\n\n\n\n\n\n\nBody\n\n\n{\n  \nname\n: \nJohn Deer\n\n}\n\n\n\n\nResponse\n\n\nThe response is a single user.\n\n\nBody\n\n\n{\n  \nuser_id\n: 1,\n  \nname\n: \nJohn Deer\n,\n  \nemail\n: \nuser@example.org\n,\n  \npassword\n: null,\n  \nsuperadmin\n: false,\n  \n_embedded\n: {\n    \naccount\n: {\n      \naccount_id\n: 1,\n      \nref\n: \nS-JOHNDOE\n,\n      \nname\n: \nJohnDoe\n,\n      \n_embedded\n: {\n        \ndefault_network\n: {\n          \nnetwork_id\n: 1,\n          \n_links\n: {\n            \nself\n: {\n              \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/network\\\\/1\n\n            }\n          }\n        },\n        \ninstance\n: [\n          {\n            \ninstance_id\n: 1,\n            \nref\n: \nS-JOHNDOE-1\n,\n            \nname\n: \nJohnDoe\n,\n            \n_embedded\n: {\n              \naccount\n: {\n                \naccount_id\n: 1,\n                \n_links\n: {\n                  \nself\n: {\n                    \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1\n\n                  }\n                }\n              }\n            },\n            \n_links\n: {\n              \nself\n: {\n                \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/instance\\\\/1\n\n              }\n            }\n          }\n        ]\n      },\n      \n_links\n: {\n        \nself\n: {\n          \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1\n\n        }\n      }\n    }\n  },\n  \n_links\n: {\n    \nself\n: {\n      \nhref\n: \nhttps:\\\\/\\\\/api.sensimity.com\\\\/user\\\\/1\n\n    }\n  }\n}\n\n\n\n\nDELETE\n\n\nDelete a user.\n\n\nRequest\n\n\nURL\n\n\n/user/:user_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nuser_id\n\n\ninteger\n\n\nID of the User\n\n\n\n\n\n\n\n\nResponse\n\n\nStatus code\n\n\n204 No Content", 
+            "title": "User"
+        }, 
+        {
+            "location": "/endpoints/user/#collection", 
+            "text": "", 
+            "title": "Collection"
+        }, 
+        {
+            "location": "/endpoints/user/#post", 
+            "text": "Create a new user.  A user must at all times be linked to an account.", 
+            "title": "POST"
+        }, 
+        {
+            "location": "/endpoints/user/#request", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/user/#url", 
+            "text": "/user", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/user/#body", 
+            "text": "The body is a json format of a user, with an embedded reference to the Account the user will be linked to.\nOptionally, the Account (and underlying Network and Instance) can be created in one request.  {\n   name :  John Doe ,\n   email :  user@example.org ,\n   password :  qwerty123 ,\n   _embedded : {\n     account : {\n       name :  JohnDoe ,\n       ref :  S-JOHNDOE \n    }\n  }\n}  Or, you can link a new User to an existing account like this:  {\n   name :  John Doe ,\n   email :  user@example.org ,\n   password :  qwerty123 ,\n   _embedded : {\n     account : {\n       _links : {\n         self : {\n           href :  https://api.sensimity.com/account/1 \n        }\n      }\n    }\n  }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/user/#response", 
+            "text": "The response is the created User object.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/user/#body_1", 
+            "text": "{\n   user_id : 1,\n   name :  John Doe ,\n   email :  user@example.org ,\n   password : null,\n   superadmin : false,\n   _embedded : {\n     account : {\n       account_id : 1,\n       ref :  S-JOHNDOE ,\n       name :  JohnDoe ,\n       _embedded : {\n         default_network : {\n           network_id : 1018,\n           _links : {\n             self : {\n               href :  https:\\\\/\\\\/api.sensimity.com\\\\/network\\\\/1 \n            }\n          }\n        },\n         instance : [\n          {\n             instance_id : 1,\n             ref :  S-JOHNDOE-1 ,\n             name :  JohnDoe ,\n             _embedded : {\n               account : {\n                 account_id : 1,\n                 _links : {\n                   self : {\n                     href :  https:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1 \n                  }\n                }\n              }\n            },\n             _links : {\n               self : {\n                 href :  https:\\\\/\\\\/api.sensimity.com\\\\/instance\\\\/1 \n              }\n            }\n          }\n        ]\n      },\n       _links : {\n         self : {\n           href :  https:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1 \n        }\n      }\n    }\n  },\n   _links : {\n     self : {\n       href :  https:\\\\/\\\\/api.sensimity.com\\\\/user\\\\/1 \n    }\n  }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/user/#resource", 
+            "text": "", 
+            "title": "Resource"
+        }, 
+        {
+            "location": "/endpoints/user/#get", 
+            "text": "Get a specific user.", 
+            "title": "GET"
+        }, 
+        {
+            "location": "/endpoints/user/#request_1", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/user/#url_1", 
+            "text": "/user/:user_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/user/#parameters", 
+            "text": "Name  Type  Description      user_id  integer  ID of the User", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/user/#response_1", 
+            "text": "The response is single user.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/user/#body_2", 
+            "text": "{\n   user_id : 1,\n   name :  John Doe ,\n   email :  user@example.org ,\n   password : null,\n   superadmin : false,\n   _embedded : {\n     account : {\n       account_id : 1,\n       ref :  S-JOHNDOE ,\n       name :  JohnDoe ,\n       _embedded : {\n         default_network : {\n           network_id : 1,\n           _links : {\n             self : {\n               href :  https:\\\\/\\\\/api.sensimity.com\\\\/network\\\\/1 \n            }\n          }\n        },\n         instance : [\n          {\n             instance_id : 1,\n             ref :  S-JOHNDOE-1 ,\n             name :  JohnDoe ,\n             _embedded : {\n               account : {\n                 account_id : 1,\n                 _links : {\n                   self : {\n                     href :  https:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1 \n                  }\n                }\n              }\n            },\n             _links : {\n               self : {\n                 href :  https:\\\\/\\\\/api.sensimity.com\\\\/instance\\\\/1 \n              }\n            }\n          }\n        ]\n      },\n       _links : {\n         self : {\n           href :  https:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1 \n        }\n      }\n    }\n  },\n   _links : {\n     self : {\n       href :  https:\\\\/\\\\/api.sensimity.com\\\\/user\\\\/1 \n    }\n  }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/user/#patch", 
+            "text": "Update a specific user.", 
+            "title": "PATCH"
+        }, 
+        {
+            "location": "/endpoints/user/#request_2", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/user/#url_2", 
+            "text": "/user/:user_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/user/#parameters_1", 
+            "text": "Name  Type  Description      user_id  integer  ID of the User", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/user/#body_3", 
+            "text": "{\n   name :  John Deer \n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/user/#response_2", 
+            "text": "The response is a single user.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/user/#body_4", 
+            "text": "{\n   user_id : 1,\n   name :  John Deer ,\n   email :  user@example.org ,\n   password : null,\n   superadmin : false,\n   _embedded : {\n     account : {\n       account_id : 1,\n       ref :  S-JOHNDOE ,\n       name :  JohnDoe ,\n       _embedded : {\n         default_network : {\n           network_id : 1,\n           _links : {\n             self : {\n               href :  https:\\\\/\\\\/api.sensimity.com\\\\/network\\\\/1 \n            }\n          }\n        },\n         instance : [\n          {\n             instance_id : 1,\n             ref :  S-JOHNDOE-1 ,\n             name :  JohnDoe ,\n             _embedded : {\n               account : {\n                 account_id : 1,\n                 _links : {\n                   self : {\n                     href :  https:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1 \n                  }\n                }\n              }\n            },\n             _links : {\n               self : {\n                 href :  https:\\\\/\\\\/api.sensimity.com\\\\/instance\\\\/1 \n              }\n            }\n          }\n        ]\n      },\n       _links : {\n         self : {\n           href :  https:\\\\/\\\\/api.sensimity.com\\\\/account\\\\/1 \n        }\n      }\n    }\n  },\n   _links : {\n     self : {\n       href :  https:\\\\/\\\\/api.sensimity.com\\\\/user\\\\/1 \n    }\n  }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/user/#delete", 
+            "text": "Delete a user.", 
+            "title": "DELETE"
+        }, 
+        {
+            "location": "/endpoints/user/#request_3", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/user/#url_3", 
+            "text": "/user/:user_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/user/#parameters_2", 
+            "text": "Name  Type  Description      user_id  integer  ID of the User", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/user/#response_3", 
+            "text": "", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/user/#status-code", 
+            "text": "204 No Content", 
+            "title": "Status code"
+        }, 
+        {
+            "location": "/endpoints/scan-results/", 
+            "text": "Collection\n\n\nPOST\n\n\nThis is an RPC-style endpoint. It is used to send raw usage data to the server, so that the statistics can be compiled.\n\n\nRequest\n\n\nURL\n\n\n/scan-results\n\n\n\n\nBody\n\n\nThe body must contain all collected data from the client's device.\n\n\n{\n  \ninstance_ref\n: \nS-44C0FFEE-1\n,\n  \ndevice\n: {\n    \nmodel\n: \nFind 5\n,\n    \noperating_system\n: \nandroid\n,\n    \nversion\n: \n4.4.2\n,\n    \ndevice_id\n: \n5622ce149d42e67c\n\n  },\n  \nbeaconLogs\n: [\n    {\n      \nUUID\n: \n44c0ffee-988a-49dc-0bad-a55c0de2d1e4\n,\n      \nmajor\n: 16,\n      \nminor\n: 0,\n      \ntimestamp\n: 1406804464.128,\n      \ntimezone\n: \nUTC+01:00\n,\n      \nrssi\n: -60,\n      \nbeacon_id\n: 16\n    }, {\n      \nUUID\n: \n44c0ffee-988a-49dc-0bad-a55c0de2d1e4\n,\n      \nmajor\n: 16,\n      \nminor\n: 0,\n      \ntimestamp\n: 1406804474.128,\n      \ntimezone\n: \nUTC+02:00\n,\n      \nrssi\n: -60,\n      \nbeacon_id\n: 16\n    }\n  ]\n}\n\n\n\n\n\n\n\n\n\n\nParameter\n\n\nDescription\n\n\nRequired\n\n\nExample\n\n\n\n\n\n\n\n\n\n\ninstance_ref\n\n\nThe application reference as you get from your dashboard\n\n\nyes\n\n\n\n\n\n\n\n\ndevice.model\n\n\nThe client's device model\n\n\nyes\n\n\n\n\n\n\n\n\ndevice.operating_system\n\n\nThe client's device model\n\n\nyes\n\n\n\n\n\n\n\n\ndevice.version\n\n\nThe client's device OS version\n\n\nyes\n\n\n\n\n\n\n\n\ndevice.device_id\n\n\nThe client's unique device id\n\n\nyes\n\n\n\n\n\n\n\n\nbeaconLogs[].UUID\n\n\nThe beacon UUID\n\n\nyes\n\n\n\n\n\n\n\n\nbeaconLogs[].major\n\n\nThe beacon's major number\n\n\nyes\n\n\n\n\n\n\n\n\nbeaconLogs[].minor\n\n\nThe beacon's minor number\n\n\nyes\n\n\n\n\n\n\n\n\nbeaconLogs[].timestamp\n\n\nTimestamp of result in seconds\n\n\nyes\n\n\n\n\n\n\n\n\nbeaconLogs[].timezone\n\n\nThe client's timezone in UTC format\n\n\nno\n\n\nUTC+02:00\n\n\n\n\n\n\nbeaconLogs[].rssi\n\n\nThe result's RSSI value\n\n\nyes\n\n\n-42\n\n\n\n\n\n\nbeaconLogs[].beacon_id\n\n\nThe beacon's id as defined in Sensimity\n\n\nno\n\n\n\n\n\n\n\n\n\n\nResponse\n\n\nThe response is an indication of success. When the request was accepted, you will receive an HTTP-status of \"204 No Content\".\nIf the provided \ninstance_ref\n does not exist in the Sensimity database a HTTP-status \"400 Bad Request\".\n\n\nStatus code\n\n\nIf the request was successful:\n\n\n\n\n204 No Content\n\n\n\n\nIn case of client error:\n\n\n\n\n400 Bad Request\n\n\n\n\nBody\n\n\nIn case the instance_ref was not recognized:\n\n\n{\n  \nerrors\n: [\n    \nSupplied reference does not exist\n\n  ]\n}", 
+            "title": "Scan result"
+        }, 
+        {
+            "location": "/endpoints/scan-results/#collection", 
+            "text": "", 
+            "title": "Collection"
+        }, 
+        {
+            "location": "/endpoints/scan-results/#post", 
+            "text": "This is an RPC-style endpoint. It is used to send raw usage data to the server, so that the statistics can be compiled.", 
+            "title": "POST"
+        }, 
+        {
+            "location": "/endpoints/scan-results/#request", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/scan-results/#url", 
+            "text": "/scan-results", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/scan-results/#body", 
+            "text": "The body must contain all collected data from the client's device.  {\n   instance_ref :  S-44C0FFEE-1 ,\n   device : {\n     model :  Find 5 ,\n     operating_system :  android ,\n     version :  4.4.2 ,\n     device_id :  5622ce149d42e67c \n  },\n   beaconLogs : [\n    {\n       UUID :  44c0ffee-988a-49dc-0bad-a55c0de2d1e4 ,\n       major : 16,\n       minor : 0,\n       timestamp : 1406804464.128,\n       timezone :  UTC+01:00 ,\n       rssi : -60,\n       beacon_id : 16\n    }, {\n       UUID :  44c0ffee-988a-49dc-0bad-a55c0de2d1e4 ,\n       major : 16,\n       minor : 0,\n       timestamp : 1406804474.128,\n       timezone :  UTC+02:00 ,\n       rssi : -60,\n       beacon_id : 16\n    }\n  ]\n}     Parameter  Description  Required  Example      instance_ref  The application reference as you get from your dashboard  yes     device.model  The client's device model  yes     device.operating_system  The client's device model  yes     device.version  The client's device OS version  yes     device.device_id  The client's unique device id  yes     beaconLogs[].UUID  The beacon UUID  yes     beaconLogs[].major  The beacon's major number  yes     beaconLogs[].minor  The beacon's minor number  yes     beaconLogs[].timestamp  Timestamp of result in seconds  yes     beaconLogs[].timezone  The client's timezone in UTC format  no  UTC+02:00    beaconLogs[].rssi  The result's RSSI value  yes  -42    beaconLogs[].beacon_id  The beacon's id as defined in Sensimity  no", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/scan-results/#response", 
+            "text": "The response is an indication of success. When the request was accepted, you will receive an HTTP-status of \"204 No Content\".\nIf the provided  instance_ref  does not exist in the Sensimity database a HTTP-status \"400 Bad Request\".", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/scan-results/#status-code", 
+            "text": "If the request was successful:   204 No Content   In case of client error:   400 Bad Request", 
+            "title": "Status code"
+        }, 
+        {
+            "location": "/endpoints/scan-results/#body_1", 
+            "text": "In case the instance_ref was not recognized:  {\n   errors : [\n     Supplied reference does not exist \n  ]\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/business-rule/", 
+            "text": "Collection\n\n\nGET\n\n\nRetrieve collection of business rules for a specific beacon within a network\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/business-rule?beacon=:beacon_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\n\n\nQuery parameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nbeacon_id\n\n\ninteger\n\n\nID of the beacon\n\n\n\n\n\n\n\n\nResponse\n\n\nThe response is a list of all business rules for the specific beacon.\n\n\nBody\n\n\n{\n    \n_links\n: {\n        \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/business-rule?beacon=6\\u0026page=1\n\n        },\n        \nfirst\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/business-rule?beacon=6\n\n        },\n        \nlast\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/business-rule?beacon=6\\u0026page=1\n\n        }\n    },\n    \n_embedded\n: {\n        \nbusiness_rule\n: [{\n            \nbusiness_rule_id\n: 2,\n            \nbusiness_rule_type\n: \nfar\n,\n            \nbeacon_id\n: 6,\n            \ninteraction_id\n: 1,\n            \n_links\n: {\n                \nself\n: {\n                    \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/2\n\n                }\n            }\n        }, {\n            \nbusiness_rule_id\n: 3,\n            \nbusiness_rule_type\n: \nmoving_towards\n,\n            \nbeacon_id\n: 6,\n            \ninteraction_id\n: 1,\n            \n_links\n: {\n                \nself\n: {\n                    \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/3\n\n                }\n            }\n        }]\n    },\n    \npage_count\n: 1,\n    \npage_size\n: 25,\n    \ntotal_items\n: 2\n}\n\n\n\n\nPOST\n\n\nCreate a new business rule in the collection.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/business-rule\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\n\n\nBody\n\n\nThe body is a json format of a business rule.\n\n\n{\n    \nbusiness_rule_type\n: \nmoving_towards\n,\n    \nbeacon_id\n: 1,\n    \ninteraction_type\n: \nurl\n,\n    \ncontent\n: \nhttp://www.sensimity.com\n\n}\n\n\n\n\nResponse\n\n\nThe response is the created business rule resource representation.\n\n\nStatus code\n\n\n201 Created\n\n\nBody\n\n\n{\n    \nbusiness_rule_id\n: 1,\n    \nbusiness_rule_type\n: \nmoving_towards\n,\n    \nbeacon_id\n: 1,\n    \ninteraction_id\n: 1,\n    \ninteraction_type\n: \nurl\n,\n    \ncontent\n: \nhttp:\\/\\/www.sensimity.com\n,\n    \n_links\n: {\n        \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/1\n\n        }\n    }\n}\n\n\n\n\nResource\n\n\nGET\n\n\nGet details about the specified business rule\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/business-rule/:business_rule_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\nbusiness_rule_id\n\n\ninteger\n\n\nID of the business rule\n\n\n\n\n\n\n\n\nResponse\n\n\nThe response contains the specified business rule resource\n\n\nBody\n\n\n{\n    \nbusiness_rule_id\n: 1,\n    \nbusiness_rule_type\n: \nmoving_towards\n,\n    \nbeacon_id\n: 1,\n    \ninteraction_id\n: 1,\n    \ninteraction_type\n: \nurl\n,\n    \ncontent\n: \nhttp:\\/\\/www.sensimity.com\n,\n    \n_links\n: {\n        \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/1\n\n        }\n    }\n}\n\n\n\n\nPATCH\n\n\nUpdate the specified business rule.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/business-rule/:business_rule_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\nbusiness_rule_id\n\n\ninteger\n\n\nID of the business rule\n\n\n\n\n\n\n\n\nBody\n\n\n{\n  \ncontent\n: \nhttp://www.enrise.com\n,\n  \nbeacon_id\n: 2,\n  \ninteraction_id\n: 2\n}\n\n\n\n\n\n\nImportant:\n beacon_id and interaction_id are required fields in the json body.\n\n\n\n\nResponse\n\n\nThe response is the updated business rule resource.\n\n\nBody\n\n\n{\n    \nbusiness_rule_id\n: 1,\n    \nbusiness_rule_type\n: \nmoving_towards\n,\n    \nbeacon_id\n: 1,\n    \ninteraction_id\n: 1,\n    \ninteraction_type\n: \nurl\n,\n    \ncontent\n: \nhttp:\\/\\/www.enrise.com\n,\n    \n_links\n: {\n        \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/1\n\n        }\n    }\n}\n\n\n\n\nDELETE\n\n\nDelete a business rule.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id/business-rule/:busines_rule_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\nbusiness_rule_id\n\n\ninteger\n\n\nID of the business rule\n\n\n\n\n\n\n\n\nResponse\n\n\nStatus code\n\n\n204 No Content", 
+            "title": "Business rule"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#collection", 
+            "text": "", 
+            "title": "Collection"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#get", 
+            "text": "Retrieve collection of business rules for a specific beacon within a network", 
+            "title": "GET"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#request", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#url", 
+            "text": "/network/:network_id/business-rule?beacon=:beacon_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#parameters", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#query-parameters", 
+            "text": "Name  Type  Description      beacon_id  integer  ID of the beacon", 
+            "title": "Query parameters"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#response", 
+            "text": "The response is a list of all business rules for the specific beacon.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#body", 
+            "text": "{\n     _links : {\n         self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/business-rule?beacon=6\\u0026page=1 \n        },\n         first : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/business-rule?beacon=6 \n        },\n         last : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/business-rule?beacon=6\\u0026page=1 \n        }\n    },\n     _embedded : {\n         business_rule : [{\n             business_rule_id : 2,\n             business_rule_type :  far ,\n             beacon_id : 6,\n             interaction_id : 1,\n             _links : {\n                 self : {\n                     href :  https:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/2 \n                }\n            }\n        }, {\n             business_rule_id : 3,\n             business_rule_type :  moving_towards ,\n             beacon_id : 6,\n             interaction_id : 1,\n             _links : {\n                 self : {\n                     href :  https:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/3 \n                }\n            }\n        }]\n    },\n     page_count : 1,\n     page_size : 25,\n     total_items : 2\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#post", 
+            "text": "Create a new business rule in the collection.", 
+            "title": "POST"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#request_1", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#url_1", 
+            "text": "/network/:network_id/business-rule", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#parameters_1", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#body_1", 
+            "text": "The body is a json format of a business rule.  {\n     business_rule_type :  moving_towards ,\n     beacon_id : 1,\n     interaction_type :  url ,\n     content :  http://www.sensimity.com \n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#response_1", 
+            "text": "The response is the created business rule resource representation.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#status-code", 
+            "text": "201 Created", 
+            "title": "Status code"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#body_2", 
+            "text": "{\n     business_rule_id : 1,\n     business_rule_type :  moving_towards ,\n     beacon_id : 1,\n     interaction_id : 1,\n     interaction_type :  url ,\n     content :  http:\\/\\/www.sensimity.com ,\n     _links : {\n         self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/1 \n        }\n    }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#resource", 
+            "text": "", 
+            "title": "Resource"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#get_1", 
+            "text": "Get details about the specified business rule", 
+            "title": "GET"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#request_2", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#url_2", 
+            "text": "/network/:network_id/business-rule/:business_rule_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#parameters_2", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network    business_rule_id  integer  ID of the business rule", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#response_2", 
+            "text": "The response contains the specified business rule resource", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#body_3", 
+            "text": "{\n     business_rule_id : 1,\n     business_rule_type :  moving_towards ,\n     beacon_id : 1,\n     interaction_id : 1,\n     interaction_type :  url ,\n     content :  http:\\/\\/www.sensimity.com ,\n     _links : {\n         self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/1 \n        }\n    }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#patch", 
+            "text": "Update the specified business rule.", 
+            "title": "PATCH"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#request_3", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#url_3", 
+            "text": "/network/:network_id/business-rule/:business_rule_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#parameters_3", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network    business_rule_id  integer  ID of the business rule", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#body_4", 
+            "text": "{\n   content :  http://www.enrise.com ,\n   beacon_id : 2,\n   interaction_id : 2\n}   Important:  beacon_id and interaction_id are required fields in the json body.", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#response_3", 
+            "text": "The response is the updated business rule resource.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#body_5", 
+            "text": "{\n     business_rule_id : 1,\n     business_rule_type :  moving_towards ,\n     beacon_id : 1,\n     interaction_id : 1,\n     interaction_type :  url ,\n     content :  http:\\/\\/www.enrise.com ,\n     _links : {\n         self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/business-rule\\/1 \n        }\n    }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#delete", 
+            "text": "Delete a business rule.", 
+            "title": "DELETE"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#request_4", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#url_4", 
+            "text": "/network/:network_id/business-rule/:busines_rule_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#parameters_4", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network    business_rule_id  integer  ID of the business rule", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#response_4", 
+            "text": "", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/business-rule/#status-code_1", 
+            "text": "204 No Content", 
+            "title": "Status code"
+        }, 
+        {
+            "location": "/endpoints/network/", 
+            "text": "Collection\n\n\nGET\n\n\nRetrieve collection of networks that the logged in user has access to.\n\n\n\n\nImportant:\n This endpoint can only be accessed when you are \nlogged in\n via oAuth\n\n\n\n\nRequest\n\n\nURL\n\n\n/network\n\n\n\n\nResponse\n\n\nThe response is a paginated list of all networks that the user has access to.\n\n\nBody\n\n\n{\n    \n_links\n: {\n        \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network?page=1\n\n        },\n        \nfirst\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\n\n        },\n        \nlast\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network?page=1\n\n        }\n    },\n    \n_embedded\n: {\n        \nnetwork\n: [{\n            \nnetwork_id\n: 3,\n            \nname\n: \nEnrise Office\n,\n            \nurl_name\n: \nenrise-office\n,\n            \nparent_network_id\n: null,\n            \n_links\n: {\n                \nself\n: {\n                    \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/3\n\n                }\n            }\n        }, {\n            \nnetwork_id\n: 4,\n            \nname\n: \nSensimity Office\n,\n            \nurl_name\n: \nsensimity-office\n,\n            \nparent_network_id\n: null,\n            \n_links\n: {\n                \nself\n: {\n                    \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/4\n\n                }\n            }\n        }]\n    },\n    \npage_count\n: 1,\n    \npage_size\n: 25,\n    \ntotal_items\n: 2\n}\n\n\n\n\nResource\n\n\nGET\n\n\nGet details about the specified network\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\n\n\nResponse\n\n\nThe response is a single network resource representation\n\n\nBody\n\n\n{\n    \nnetwork_id\n: 5,\n    \nname\n: \nDemo network\n,\n    \nurl_name\n: \ndemo-network\n,\n    \nparent_network_id\n: null,\n    \nusers\n: [],\n    \n_links\n: {\n        \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/5\n\n        }\n    }\n}\n\n\n\n\nPATCH\n\n\nUpdate the specified network.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\n\n\nBody\n\n\n{\n    \nname\n: \nOther network name\n\n}\n\n\n\n\nResponse\n\n\nThe response is the updated network resource.\n\n\nBody\n\n\n{\n    \nnetwork_id\n: 5,\n    \nname\n: \nOther network name\n,\n    \nurl_name\n: \ndemo-network\n,\n    \nparent_network_id\n: null,\n    \nusers\n: [],\n    \n_links\n: {\n        \nself\n: {\n            \nhref\n: \nhttps:\\/\\/api.sensimity.com\\/v1\\/network\\/5\n\n        }\n    }\n}\n\n\n\n\nDELETE\n\n\nDelete a network.\n\n\nRequest\n\n\nURL\n\n\n/network/:network_id\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nnetwork_id\n\n\ninteger\n\n\nID of the network\n\n\n\n\n\n\n\n\nResponse\n\n\nStatus code\n\n\n204 No Content", 
+            "title": "Network"
+        }, 
+        {
+            "location": "/endpoints/network/#collection", 
+            "text": "", 
+            "title": "Collection"
+        }, 
+        {
+            "location": "/endpoints/network/#get", 
+            "text": "Retrieve collection of networks that the logged in user has access to.   Important:  This endpoint can only be accessed when you are  logged in  via oAuth", 
+            "title": "GET"
+        }, 
+        {
+            "location": "/endpoints/network/#request", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/network/#url", 
+            "text": "/network", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/network/#response", 
+            "text": "The response is a paginated list of all networks that the user has access to.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/network/#body", 
+            "text": "{\n     _links : {\n         self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/network?page=1 \n        },\n         first : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/network \n        },\n         last : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/network?page=1 \n        }\n    },\n     _embedded : {\n         network : [{\n             network_id : 3,\n             name :  Enrise Office ,\n             url_name :  enrise-office ,\n             parent_network_id : null,\n             _links : {\n                 self : {\n                     href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/3 \n                }\n            }\n        }, {\n             network_id : 4,\n             name :  Sensimity Office ,\n             url_name :  sensimity-office ,\n             parent_network_id : null,\n             _links : {\n                 self : {\n                     href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/4 \n                }\n            }\n        }]\n    },\n     page_count : 1,\n     page_size : 25,\n     total_items : 2\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/network/#resource", 
+            "text": "", 
+            "title": "Resource"
+        }, 
+        {
+            "location": "/endpoints/network/#get_1", 
+            "text": "Get details about the specified network", 
+            "title": "GET"
+        }, 
+        {
+            "location": "/endpoints/network/#request_1", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/network/#url_1", 
+            "text": "/network/:network_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/network/#parameters", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/network/#response_1", 
+            "text": "The response is a single network resource representation", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/network/#body_1", 
+            "text": "{\n     network_id : 5,\n     name :  Demo network ,\n     url_name :  demo-network ,\n     parent_network_id : null,\n     users : [],\n     _links : {\n         self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/5 \n        }\n    }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/network/#patch", 
+            "text": "Update the specified network.", 
+            "title": "PATCH"
+        }, 
+        {
+            "location": "/endpoints/network/#request_2", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/network/#url_2", 
+            "text": "/network/:network_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/network/#parameters_1", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/network/#body_2", 
+            "text": "{\n     name :  Other network name \n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/network/#response_2", 
+            "text": "The response is the updated network resource.", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/network/#body_3", 
+            "text": "{\n     network_id : 5,\n     name :  Other network name ,\n     url_name :  demo-network ,\n     parent_network_id : null,\n     users : [],\n     _links : {\n         self : {\n             href :  https:\\/\\/api.sensimity.com\\/v1\\/network\\/5 \n        }\n    }\n}", 
+            "title": "Body"
+        }, 
+        {
+            "location": "/endpoints/network/#delete", 
+            "text": "Delete a network.", 
+            "title": "DELETE"
+        }, 
+        {
+            "location": "/endpoints/network/#request_3", 
+            "text": "", 
+            "title": "Request"
+        }, 
+        {
+            "location": "/endpoints/network/#url_3", 
+            "text": "/network/:network_id", 
+            "title": "URL"
+        }, 
+        {
+            "location": "/endpoints/network/#parameters_2", 
+            "text": "Name  Type  Description      network_id  integer  ID of the network", 
+            "title": "Parameters"
+        }, 
+        {
+            "location": "/endpoints/network/#response_3", 
+            "text": "", 
+            "title": "Response"
+        }, 
+        {
+            "location": "/endpoints/network/#status-code", 
+            "text": "204 No Content", 
+            "title": "Status code"
+        }
+    ]
+}

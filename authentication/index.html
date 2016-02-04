@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>2. Authentication - Sensimity API Documentation - Sensimity API Documentation</title>
+	<title>2. Authentication - Sensimity API Documentation</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -58,19 +58,25 @@
                 
                 
                     <li >
-                        <a href="../basic-communication">1. Basic communication</a>
-                    </li>
-                
-                
-                
-                    <li class="active">
-                        <a href=".">2. Authentication</a>
+                        <a href="..">Home</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../common-use-cases">3. Common use cases</a>
+                        <a href="../basic-communication/">1. Basic communication</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">2. Authentication</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../common-use-cases/">3. Common use cases</a>
                     </li>
                 
                 
@@ -80,27 +86,27 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../endpoints">Endpoints</a>
+                                <a href="../endpoints/">Endpoints</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/beacon">Beacon</a>
+                                <a href="../endpoints/beacon/">Beacon</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/user">User</a>
+                                <a href="../endpoints/user/">User</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/scan-results">Scan result</a>
+                                <a href="../endpoints/scan-results/">Scan result</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/business-rule">Business rule</a>
+                                <a href="../endpoints/business-rule/">Business rule</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/network">Network</a>
+                                <a href="../endpoints/network/">Network</a>
                             </li>
                         
                         </ul>
@@ -155,14 +161,14 @@ There are many libraries available in multiple language which you can use.</p>
 </em> Password</p>
 <p>If you do not have these credentials please <a href="mailto:info@sensimity.com">contact us</a>.</p>
 <h2 id="obtaining-a-token">Obtaining a token</h2>
-<p>To obtain a token you must make a request to the Sensimity API using the credentials described in the <a href=".#credentials">previous chapter</a>.
+<p>To obtain a token you must make a request to the Sensimity API using the credentials described in the <a href="./#credentials">previous chapter</a>.
 Here's an example of the request:</p>
 <pre><code class="bash">curl -X POST \
     -H &quot;Authorization: Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=&quot; \
     -H &quot;Accept: application/vnd.sensimity.v1+json&quot; \
     -H &quot;Content-Type: application/vnd.sensimity.v1+json&quot; \
     -d '{&quot;username&quot;:&quot;user@example.org&quot;,&quot;password&quot;:&quot;your_password&quot;,&quot;grant_type&quot;:&quot;password&quot;}' \
-    http://api.sensimity.com/oauth
+    https://api.sensimity.com/oauth
 </code></pre>
 
 <p>The response will contain a access token that you need for subsequent requests:</p>
@@ -186,19 +192,19 @@ The header looks as follows:</p>
 <pre><code class="bash">curl -X GET \
     -H &quot;Authorization: Bearer b5f4b74cd0204bd5cc2b315a6e15b19a3211de2a&quot; \
     -H &quot;Accept: application/vnd.sensimity.v1+json&quot; \
-    http://api.sensimity.com/v1/network/1/beacon/1
+    https://api.sensimity.com/v1/network/1/beacon/1
 </code></pre>
 
 <h2 id="refresh-token">Refresh token</h2>
 <p>An obtained access token will expire after some time and you will have to obtain a new one.
-To do this you need the <code>refresh_token</code> (see <a href=".#obtaining-a-token">Obtaining a token</a>).
+To do this you need the <code>refresh_token</code> (see <a href="./#obtaining-a-token">Obtaining a token</a>).
 Here's an example of the request:</p>
 <pre><code class="bash">curl -X POST \
     -H &quot;Authorization: Basic Y2xpZW50X2lkOmNsaWVudF9zZWNyZXQ=&quot; \
     -H &quot;Accept: application/vnd.sensimity.v1+json&quot; \
     -H &quot;Content-Type: application/vnd.sensimity.v1+json&quot; \
     -d '{&quot;username&quot;:&quot;user@example.org&quot;,&quot;refresh_token&quot;:&quot;d454a2e53636153f21607e5817378bd6c059dd5c&quot;,&quot;grant_type&quot;:&quot;refresh_token&quot;}' \
-    http://api.sensimity.com/oauth
+    https://api.sensimity.com/oauth
 </code></pre>
 
 <p>The response will contain a new access token that you need for subsequent requests:</p>
@@ -208,9 +214,7 @@ Here's an example of the request:</p>
     &quot;token_type&quot;: &quot;Bearer&quot;,
     &quot;scope&quot;: null
 }
-</code></pre>
-
-</div>
+</code></pre></div>
             
         </div>
 

@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>1. Basic communication - Sensimity API Documentation - Sensimity API Documentation</title>
+	<title>1. Basic communication - Sensimity API Documentation</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -57,20 +57,26 @@
                 <ul class="nav navbar-nav">
                 
                 
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
                     <li class="active">
-                        <a href=".">1. Basic communication</a>
+                        <a href="./">1. Basic communication</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../authentication">2. Authentication</a>
+                        <a href="../authentication/">2. Authentication</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../common-use-cases">3. Common use cases</a>
+                        <a href="../common-use-cases/">3. Common use cases</a>
                     </li>
                 
                 
@@ -80,27 +86,27 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../endpoints">Endpoints</a>
+                                <a href="../endpoints/">Endpoints</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/beacon">Beacon</a>
+                                <a href="../endpoints/beacon/">Beacon</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/user">User</a>
+                                <a href="../endpoints/user/">User</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/scan-results">Scan result</a>
+                                <a href="../endpoints/scan-results/">Scan result</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/business-rule">Business rule</a>
+                                <a href="../endpoints/business-rule/">Business rule</a>
                             </li>
                         
                             <li >
-                                <a href="../endpoints/network">Network</a>
+                                <a href="../endpoints/network/">Network</a>
                             </li>
                         
                         </ul>
@@ -147,7 +153,7 @@
 
 <h1 id="talking-to-the-sensimity-api">Talking to the Sensimity API</h1>
 <h2 id="api-server">API server</h2>
-<p>The Sensimity API can be reached at <code>http://api.sensimity.com/</code>.</p>
+<p>The Sensimity API can be reached at <code>https://api.sensimity.com/</code>.</p>
 <h2 id="accept-and-content-type-headers">Accept and Content-Type headers</h2>
 <p>For all requests to the Sensimity API please use the following Accept header:</p>
 <pre><code>Accept: application/vnd.sensimity.v1+json
@@ -158,10 +164,10 @@
 </code></pre>
 
 <h2 id="authenticating">Authenticating</h2>
-<p>Most endpoints require the client to be authenticated with the API. You can read more on this in <a href="../authentication">the chapter on authentication</a>.</p>
+<p>Most endpoints require the client to be authenticated with the API. You can read more on this in <a href="../authentication/">the chapter on authentication</a>.</p>
 <h2 id="making-a-request-to-the-api">Making a request to the API</h2>
 <p>For example:</p>
-<pre><code class="sh">curl -X GET -H &quot;Authorization: Bearer 932840e6079d85f5a4a9954916f04e37c8223cac&quot; -H &quot;Accept: application/vnd.sensimity.v1+json&quot; -H &quot;Content-Type: application/vnd.sensimity.v1+json&quot; http://api.sensimity.com/v1/network/1/beacon
+<pre><code class="sh">curl -X GET -H &quot;Authorization: Bearer 932840e6079d85f5a4a9954916f04e37c8223cac&quot; -H &quot;Accept: application/vnd.sensimity.v1+json&quot; -H &quot;Content-Type: application/vnd.sensimity.v1+json&quot; https://api.sensimity.com/v1/network/1/beacon
 </code></pre>
 
 <h2 id="response-status-codes">Response status codes</h2>
@@ -228,7 +234,7 @@
 </tbody>
 </table>
 <h2 id="error-response">Error response</h2>
-<p>When a response was not successful, in many cases the problem will be reported in the response body. </p>
+<p>When a response was not successful, in many cases the problem will be reported in the response body.</p>
 <p>For example, when a required property is missing.</p>
 <pre><code class="json">{
   &quot;validation_messages&quot;: {
@@ -241,9 +247,7 @@
   &quot;status&quot;: 422,
   &quot;detail&quot;: &quot;Failed Validation&quot;
 }
-</code></pre>
-
-</div>
+</code></pre></div>
             
         </div>
 

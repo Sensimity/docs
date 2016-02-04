@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>User - Sensimity API Documentation - Sensimity API Documentation</title>
+	<title>User - Sensimity API Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -58,19 +58,25 @@
                 
                 
                     <li >
-                        <a href="../../basic-communication">1. Basic communication</a>
+                        <a href="../..">Home</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../../authentication">2. Authentication</a>
+                        <a href="../../basic-communication/">1. Basic communication</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../../common-use-cases">3. Common use cases</a>
+                        <a href="../../authentication/">2. Authentication</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../common-use-cases/">3. Common use cases</a>
                     </li>
                 
                 
@@ -80,27 +86,27 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="..">Endpoints</a>
+                                <a href="../">Endpoints</a>
                             </li>
                         
                             <li >
-                                <a href="../beacon">Beacon</a>
+                                <a href="../beacon/">Beacon</a>
                             </li>
                         
                             <li class="active">
-                                <a href=".">User</a>
+                                <a href="./">User</a>
                             </li>
                         
                             <li >
-                                <a href="../scan-results">Scan result</a>
+                                <a href="../scan-results/">Scan result</a>
                             </li>
                         
                             <li >
-                                <a href="../business-rule">Business rule</a>
+                                <a href="../business-rule/">Business rule</a>
                             </li>
                         
                             <li >
-                                <a href="../network">Network</a>
+                                <a href="../network/">Network</a>
                             </li>
                         
                         </ul>
@@ -147,35 +153,101 @@
 <h1 id="collection">Collection</h1>
 <h2 id="post">POST</h2>
 <p>Create a new user.</p>
+<p>A user must at all times be linked to an account.</p>
 <h3 id="request">Request</h3>
 <h4 id="url">URL</h4>
 <pre><code>/user
 </code></pre>
 
 <h4 id="body">Body</h4>
-<p>The body is a json format of a user.</p>
+<p>The body is a json format of a user, with an embedded reference to the Account the user will be linked to.
+Optionally, the Account (and underlying Network and Instance) can be created in one request.</p>
 <pre><code class="json">{
+  &quot;name&quot;: &quot;John Doe&quot;,
   &quot;email&quot;: &quot;user@example.org&quot;,
   &quot;password&quot;: &quot;qwerty123&quot;,
-  &quot;name&quot;: &quot;John Doe&quot;
+  &quot;_embedded&quot;: {
+    &quot;account&quot;: {
+      &quot;name&quot;: &quot;JohnDoe&quot;,
+      &quot;ref&quot;: &quot;S-JOHNDOE&quot;
+    }
+  }
+}
+</code></pre>
+
+<p>Or, you can link a new User to an existing account like this:</p>
+<pre><code class="json">{
+  &quot;name&quot;: &quot;John Doe&quot;,
+  &quot;email&quot;: &quot;user@example.org&quot;,
+  &quot;password&quot;: &quot;qwerty123&quot;,
+  &quot;_embedded&quot;: {
+    &quot;account&quot;: {
+      &quot;_links&quot;: {
+        &quot;self&quot;: {
+          &quot;href&quot;: &quot;https://api.sensimity.com/account/1&quot;
+        }
+      }
+    }
+  }
 }
 </code></pre>
 
 <h3 id="response">Response</h3>
-<p>The response is the user object.</p>
+<p>The response is the created User object.</p>
 <h4 id="body_1">Body</h4>
 <pre><code class="json">{
-  &quot;email&quot;: &quot;user@example.org&quot;,
+  &quot;user_id&quot;: 1,
   &quot;name&quot;: &quot;John Doe&quot;,
-  &quot;created_at&quot;: &quot;2015-02-13 16:33:31.347069&quot;,
-  &quot;updated_at&quot;: &quot;2015-02-13 16:33:31.347069&quot;,
+  &quot;email&quot;: &quot;user@example.org&quot;,
+  &quot;password&quot;: null,
   &quot;superadmin&quot;: false,
-  &quot;deleted&quot;: false,
-  &quot;networks&quot;: [ ],
-  &quot;user_id&quot;: 22,
+  &quot;_embedded&quot;: {
+    &quot;account&quot;: {
+      &quot;account_id&quot;: 1,
+      &quot;ref&quot;: &quot;S-JOHNDOE&quot;,
+      &quot;name&quot;: &quot;JohnDoe&quot;,
+      &quot;_embedded&quot;: {
+        &quot;default_network&quot;: {
+          &quot;network_id&quot;: 1018,
+          &quot;_links&quot;: {
+            &quot;self&quot;: {
+              &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/network\\/1&quot;
+            }
+          }
+        },
+        &quot;instance&quot;: [
+          {
+            &quot;instance_id&quot;: 1,
+            &quot;ref&quot;: &quot;S-JOHNDOE-1&quot;,
+            &quot;name&quot;: &quot;JohnDoe&quot;,
+            &quot;_embedded&quot;: {
+              &quot;account&quot;: {
+                &quot;account_id&quot;: 1,
+                &quot;_links&quot;: {
+                  &quot;self&quot;: {
+                    &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/account\\/1&quot;
+                  }
+                }
+              }
+            },
+            &quot;_links&quot;: {
+              &quot;self&quot;: {
+                &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/instance\\/1&quot;
+              }
+            }
+          }
+        ]
+      },
+      &quot;_links&quot;: {
+        &quot;self&quot;: {
+          &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/account\\/1&quot;
+        }
+      }
+    }
+  },
   &quot;_links&quot;: {
     &quot;self&quot;: {
-      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/user\/22&quot;
+      &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/user\\/1&quot;
     }
   }
 }
@@ -210,17 +282,58 @@
 <p>The response is single user.</p>
 <h4 id="body_2">Body</h4>
 <pre><code class="json">{
-  &quot;email&quot;: &quot;user@example.org&quot;,
+  &quot;user_id&quot;: 1,
   &quot;name&quot;: &quot;John Doe&quot;,
-  &quot;created_at&quot;: &quot;2015-02-13 16:33:31.347069&quot;,
-  &quot;updated_at&quot;: &quot;2015-02-13 16:33:31.347069&quot;,
+  &quot;email&quot;: &quot;user@example.org&quot;,
+  &quot;password&quot;: null,
   &quot;superadmin&quot;: false,
-  &quot;deleted&quot;: false,
-  &quot;networks&quot;: [ ],
-  &quot;user_id&quot;: 22,
+  &quot;_embedded&quot;: {
+    &quot;account&quot;: {
+      &quot;account_id&quot;: 1,
+      &quot;ref&quot;: &quot;S-JOHNDOE&quot;,
+      &quot;name&quot;: &quot;JohnDoe&quot;,
+      &quot;_embedded&quot;: {
+        &quot;default_network&quot;: {
+          &quot;network_id&quot;: 1,
+          &quot;_links&quot;: {
+            &quot;self&quot;: {
+              &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/network\\/1&quot;
+            }
+          }
+        },
+        &quot;instance&quot;: [
+          {
+            &quot;instance_id&quot;: 1,
+            &quot;ref&quot;: &quot;S-JOHNDOE-1&quot;,
+            &quot;name&quot;: &quot;JohnDoe&quot;,
+            &quot;_embedded&quot;: {
+              &quot;account&quot;: {
+                &quot;account_id&quot;: 1,
+                &quot;_links&quot;: {
+                  &quot;self&quot;: {
+                    &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/account\\/1&quot;
+                  }
+                }
+              }
+            },
+            &quot;_links&quot;: {
+              &quot;self&quot;: {
+                &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/instance\\/1&quot;
+              }
+            }
+          }
+        ]
+      },
+      &quot;_links&quot;: {
+        &quot;self&quot;: {
+          &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/account\\/1&quot;
+        }
+      }
+    }
+  },
   &quot;_links&quot;: {
     &quot;self&quot;: {
-      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/user\/22&quot;
+      &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/user\\/1&quot;
     }
   }
 }
@@ -260,17 +373,58 @@
 <p>The response is a single user.</p>
 <h4 id="body_4">Body</h4>
 <pre><code class="json">{
-  &quot;email&quot;: &quot;user@example.org&quot;,
+  &quot;user_id&quot;: 1,
   &quot;name&quot;: &quot;John Deer&quot;,
-  &quot;created_at&quot;: &quot;2015-02-13 16:33:31.347069&quot;,
-  &quot;updated_at&quot;: &quot;2015-02-13 16:33:31.347069&quot;,
+  &quot;email&quot;: &quot;user@example.org&quot;,
+  &quot;password&quot;: null,
   &quot;superadmin&quot;: false,
-  &quot;deleted&quot;: false,
-  &quot;networks&quot;: [ ],
-  &quot;user_id&quot;: 22,
+  &quot;_embedded&quot;: {
+    &quot;account&quot;: {
+      &quot;account_id&quot;: 1,
+      &quot;ref&quot;: &quot;S-JOHNDOE&quot;,
+      &quot;name&quot;: &quot;JohnDoe&quot;,
+      &quot;_embedded&quot;: {
+        &quot;default_network&quot;: {
+          &quot;network_id&quot;: 1,
+          &quot;_links&quot;: {
+            &quot;self&quot;: {
+              &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/network\\/1&quot;
+            }
+          }
+        },
+        &quot;instance&quot;: [
+          {
+            &quot;instance_id&quot;: 1,
+            &quot;ref&quot;: &quot;S-JOHNDOE-1&quot;,
+            &quot;name&quot;: &quot;JohnDoe&quot;,
+            &quot;_embedded&quot;: {
+              &quot;account&quot;: {
+                &quot;account_id&quot;: 1,
+                &quot;_links&quot;: {
+                  &quot;self&quot;: {
+                    &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/account\\/1&quot;
+                  }
+                }
+              }
+            },
+            &quot;_links&quot;: {
+              &quot;self&quot;: {
+                &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/instance\\/1&quot;
+              }
+            }
+          }
+        ]
+      },
+      &quot;_links&quot;: {
+        &quot;self&quot;: {
+          &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/account\\/1&quot;
+        }
+      }
+    }
+  },
   &quot;_links&quot;: {
     &quot;self&quot;: {
-      &quot;href&quot;: &quot;http:\/\/api.sensimity.com\/user\/22&quot;
+      &quot;href&quot;: &quot;https:\\/\\/api.sensimity.com\\/user\\/1&quot;
     }
   }
 }
@@ -302,8 +456,7 @@
 </table>
 <h3 id="response_3">Response</h3>
 <h4 id="status-code">Status code</h4>
-<p>204 No Content</p>
-</div>
+<p>204 No Content</p></div>
             
         </div>
 

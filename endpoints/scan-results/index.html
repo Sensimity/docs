@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Scan result - Sensimity API Documentation - Sensimity API Documentation</title>
+	<title>Scan result - Sensimity API Documentation</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -58,19 +58,25 @@
                 
                 
                     <li >
-                        <a href="../../basic-communication">1. Basic communication</a>
+                        <a href="../..">Home</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../../authentication">2. Authentication</a>
+                        <a href="../../basic-communication/">1. Basic communication</a>
                     </li>
                 
                 
                 
                     <li >
-                        <a href="../../common-use-cases">3. Common use cases</a>
+                        <a href="../../authentication/">2. Authentication</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../common-use-cases/">3. Common use cases</a>
                     </li>
                 
                 
@@ -80,27 +86,27 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="..">Endpoints</a>
+                                <a href="../">Endpoints</a>
                             </li>
                         
                             <li >
-                                <a href="../beacon">Beacon</a>
+                                <a href="../beacon/">Beacon</a>
                             </li>
                         
                             <li >
-                                <a href="../user">User</a>
+                                <a href="../user/">User</a>
                             </li>
                         
                             <li class="active">
-                                <a href=".">Scan result</a>
+                                <a href="./">Scan result</a>
                             </li>
                         
                             <li >
-                                <a href="../business-rule">Business rule</a>
+                                <a href="../business-rule/">Business rule</a>
                             </li>
                         
                             <li >
-                                <a href="../network">Network</a>
+                                <a href="../network/">Network</a>
                             </li>
                         
                         </ul>
@@ -146,6 +152,7 @@
 <h4 id="body">Body</h4>
 <p>The body must contain all collected data from the client's device.</p>
 <pre><code class="json">{
+  &quot;instance_ref&quot;: &quot;S-44C0FFEE-1&quot;,
   &quot;device&quot;: {
     &quot;model&quot;: &quot;Find 5&quot;,
     &quot;operating_system&quot;: &quot;android&quot;,
@@ -154,35 +161,130 @@
   },
   &quot;beaconLogs&quot;: [
     {
-      &quot;major&quot;: 16,
       &quot;UUID&quot;: &quot;44c0ffee-988a-49dc-0bad-a55c0de2d1e4&quot;,
+      &quot;major&quot;: 16,
+      &quot;minor&quot;: 0,
       &quot;timestamp&quot;: 1406804464.128,
+      &quot;timezone&quot;: &quot;UTC+01:00&quot;,
       &quot;rssi&quot;: -60,
-      &quot;id&quot;: 1,
-      &quot;minor&quot;: 0
+      &quot;beacon_id&quot;: 16
     }, {
-      &quot;major&quot;: 16,
       &quot;UUID&quot;: &quot;44c0ffee-988a-49dc-0bad-a55c0de2d1e4&quot;,
+      &quot;major&quot;: 16,
+      &quot;minor&quot;: 0,
       &quot;timestamp&quot;: 1406804474.128,
+      &quot;timezone&quot;: &quot;UTC+02:00&quot;,
       &quot;rssi&quot;: -60,
-      &quot;id&quot;: 2,
-      &quot;minor&quot;: 0
+      &quot;beacon_id&quot;: 16
     }
   ]
 }
 </code></pre>
 
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th align="center">Required</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>instance_ref</td>
+<td>The application reference as you get from your dashboard</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>device.model</td>
+<td>The client's device model</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>device.operating_system</td>
+<td>The client's device model</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>device.version</td>
+<td>The client's device OS version</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>device.device_id</td>
+<td>The client's unique device id</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>beaconLogs[].UUID</td>
+<td>The beacon UUID</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>beaconLogs[].major</td>
+<td>The beacon's major number</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>beaconLogs[].minor</td>
+<td>The beacon's minor number</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>beaconLogs[].timestamp</td>
+<td>Timestamp of result in seconds</td>
+<td align="center">yes</td>
+<td></td>
+</tr>
+<tr>
+<td>beaconLogs[].timezone</td>
+<td>The client's timezone in UTC format</td>
+<td align="center">no</td>
+<td>UTC+02:00</td>
+</tr>
+<tr>
+<td>beaconLogs[].rssi</td>
+<td>The result's RSSI value</td>
+<td align="center">yes</td>
+<td>-42</td>
+</tr>
+<tr>
+<td>beaconLogs[].beacon_id</td>
+<td>The beacon's id as defined in Sensimity</td>
+<td align="center">no</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="response">Response</h3>
-<p>The response is a summary of the received results.</p>
+<p>The response is an indication of success. When the request was accepted, you will receive an HTTP-status of "204 No Content".
+If the provided <code>instance_ref</code> does not exist in the Sensimity database a HTTP-status "400 Bad Request".</p>
+<h4 id="status-code">Status code</h4>
+<p>If the request was successful:</p>
+<ul>
+<li>204 No Content</li>
+</ul>
+<p>In case of client error:</p>
+<ul>
+<li>400 Bad Request</li>
+</ul>
 <h4 id="body_1">Body</h4>
+<p>In case the instance_ref was not recognized:</p>
 <pre><code class="json">{
-  &quot;message&quot;: &quot;The scan results are successfully processed.&quot;,
-  &quot;added&quot;: 2,
-  &quot;skipped&quot;: 0
+  &quot;errors&quot;: [
+    &quot;Supplied reference does not exist&quot;
+  ]
 }
-</code></pre>
-
-</div>
+</code></pre></div>
             
         </div>
 

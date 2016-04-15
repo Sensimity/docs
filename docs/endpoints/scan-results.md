@@ -27,7 +27,7 @@ The body must contain all collected data from the client's device.
       "UUID": "44c0ffee-988a-49dc-0bad-a55c0de2d1e4",
       "major": 16,
       "minor": 0,
-      "timestamp": 1406804464.128,
+      "timestamp": 1406804464,
       "timezone": "UTC+01:00",
       "rssi": -60,
       "beacon_id": 16
@@ -35,7 +35,7 @@ The body must contain all collected data from the client's device.
       "UUID": "44c0ffee-988a-49dc-0bad-a55c0de2d1e4",
       "major": 16,
       "minor": 0,
-      "timestamp": 1406804474.128,
+      "timestamp": 1406804474,
       "timezone": "UTC+02:00",
       "rssi": -60,
       "beacon_id": 16
